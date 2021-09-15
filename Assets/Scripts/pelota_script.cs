@@ -6,12 +6,16 @@ public class pelota_script : MonoBehaviour
 {
     public float speed = 5f;
 
-    public int player_bounces = (int) 1f;
+    public float bounce_min = 1f;
+    public float bounce_max = 6f;
+
+    public int player_bounces =  1;
 
     // Start is called before the first frame update
     void Start()
     {
-        Respawn();
+        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
+
     }
 
     // Update is called once per frame
@@ -20,9 +24,11 @@ public class pelota_script : MonoBehaviour
         
     }
 
-    //Función inicial de prueba
+    //Funciï¿½n inicial de prueba
     void Respawn()
     {
+
+        player_bounces = (int) Random.Range(bounce_min, bounce_max);
         transform.position = Vector3.zero;
 
         GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
@@ -37,7 +43,9 @@ public class pelota_script : MonoBehaviour
 
         if(player_bounces== 0 || collision.gameObject.CompareTag("Piso"))
         {
-            Destroy(gameObject);
+            Respawn();
+
+            
         }
     }
 }
