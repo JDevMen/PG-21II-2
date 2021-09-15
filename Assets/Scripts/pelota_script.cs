@@ -30,12 +30,12 @@ public class pelota_script : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             player_bounces--;
         }
 
-        if(player_bounces== 0)
+        if(player_bounces== 0 || collision.gameObject.CompareTag("Piso"))
         {
             Destroy(gameObject);
         }
