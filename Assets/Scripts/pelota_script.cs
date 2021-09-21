@@ -6,8 +6,8 @@ public class pelota_script : MonoBehaviour
 {
     public float speed = 5f;
 
-    public float bounce_min = 1f;
-    public float bounce_max = 6f;
+    public int bounce_min = 1;
+    public int bounce_max = 6;
 
     public int player_bounces =  1;
 
@@ -43,8 +43,8 @@ public class pelota_script : MonoBehaviour
 
         if(player_bounces== 0 || collision.gameObject.CompareTag("Piso"))
         {
-            Respawn();
-
+            Debug.Log("La pelota ha sido destruida");
+            Destroy(gameObject);
             
         }
     }
