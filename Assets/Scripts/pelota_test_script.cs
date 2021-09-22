@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pelota_script : MonoBehaviour
+public class pelota_test_script : MonoBehaviour
 {
     public float speed = 5f;
 
@@ -25,12 +25,12 @@ public class pelota_script : MonoBehaviour
     void Update()
     {
         //Solo para pruebas
-        //if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
-        //if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
+        if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
+        if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
 
-        //if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
-        //if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
-        //if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
+        if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
+        if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
+        if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
 
     }
 

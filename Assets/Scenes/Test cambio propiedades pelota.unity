@@ -891,5 +891,28 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 326948402503663863, guid: 8f8254e67786c1a4cbd9a2634b67afe8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8f8254e67786c1a4cbd9a2634b67afe8, type: 3}
+--- !u!1 &1359720356975122066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1910321114343366458, guid: 8f8254e67786c1a4cbd9a2634b67afe8, type: 3}
+  m_PrefabInstance: {fileID: 1359720356975122065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1359720356975122067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359720356975122066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3b9e2e996384d419c98b8ff3a13c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  bounce_min: 1
+  bounce_max: 6
+  player_bounces: 1
+  factorCambioVelocidad: 1.2
