@@ -4,46 +4,49 @@ using UnityEngine;
 
 public class pelota_script : MonoBehaviour
 {
+    //Velocidad inicial de la pelota
     public float speed = 5f;
 
+    //Variables rebote 
     public int bounce_min = 1;
     public int bounce_max = 6;
+    public int player_bounces = 1;
 
-    public int player_bounces =  1;
+    private PhysicsMaterial2D material;
 
+    //Variable factor cambio de velocidad (magnitud de vector velocidad)
     public float factorCambioVelocidad = 1.2f;
+
+    //Velocidad máxima alcanzable por la pelota
+    public float maxVelocidad = 50f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
-
+        material = GetComponent<CircleCollider2D>().sharedMaterial;
     }
 
     // Update is called once per frame
     //Se mantiene para motivios de testing y debugging
     void Update()
     {
-        //Solo para pruebas
-        //if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
-        //if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
-
-        //if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
-        //if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
-        //if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
-
+        
     }
 
     void FixedUpdate()
     {
+        //Obtener componente Rigidbody2D para obtener velocidad del objeto
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
-        //Debug.Log(rigidBody.velocity.x);
-        //Debug.Log(rigidBody.velocity.y);
-        Debug.Log(Mathf.Abs(rigidBody.velocity.x)+ Mathf.Abs(rigidBody.velocity.y));
+        Debug.Log("Velocidad pelota: " + rigidBody.velocity.magnitude);
 
-        
+        //Limitar velocidad máxima del objeto para evitar problemas de colisión
+        if (rigidBody.velocity.magnitude > factorCambioVelocidad)
+            rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxVelocidad);
+
     }
-    
+
     //Funci�n inicial de prueba
     void Respawn()
     {
@@ -85,5 +88,15 @@ public class pelota_script : MonoBehaviour
     {
         Vector3 nuevoTamano = new Vector3(tamano, tamano, 1);
         GetComponent<Transform>().localScale = nuevoTamano; 
+    }
+
+    public void cambiarRebote(float pRebote)
+    {
+        PhysicsMaterial2D nuevoMaterial = Instantiate(GetComponent<CircleCollider2D>().sharedMaterial);
+
+        nuevoMaterial.bounciness = pRebote;
+
+        GetComponent<CircleCollider2D>().sharedMaterial = nuevoMaterial;
+
     }
 }

@@ -916,3 +916,4 @@ MonoBehaviour:
   bounce_max: 6
   player_bounces: -1
   factorCambioVelocidad: 1.2
+  maxVelocidad: 50
