@@ -914,5 +914,5 @@ MonoBehaviour:
   speed: 5
   bounce_min: 1
   bounce_max: 6
-  player_bounces: 1
+  player_bounces: -1
   factorCambioVelocidad: 1.2
