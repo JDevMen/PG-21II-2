@@ -11,6 +11,8 @@ public class pelota_script : MonoBehaviour
 
     public int player_bounces =  1;
 
+    public float factorCambioVelocidad = 1.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,25 @@ public class pelota_script : MonoBehaviour
     }
 
     // Update is called once per frame
+    //Se mantiene para motivios de testing y debugging
     void Update()
     {
+        //Solo para pruebas
+        if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
+        if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
         
     }
 
+    void FixedUpdate()
+    {
+        Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+        //Debug.Log(rigidBody.velocity.x);
+        //Debug.Log(rigidBody.velocity.y);
+        Debug.Log(Mathf.Abs(rigidBody.velocity.x)+ Mathf.Abs(rigidBody.velocity.y));
+
+        
+    }
+    
     //Funci�n inicial de prueba
     void Respawn()
     {
@@ -47,5 +63,17 @@ public class pelota_script : MonoBehaviour
             Destroy(gameObject);
             
         }
+    }
+
+    public void aumentarVelocidad(float pFactorAumento)
+    {
+
+        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * pFactorAumento;
+    }
+
+    public void disminuirVelocidad(float pFactorAumento)
+    {
+
+        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity / pFactorAumento;
     }
 }
