@@ -4,7 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class UI_Loader : MonoBehaviour
 {
-       // Update is called once per frame
+
+    private void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null) SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
