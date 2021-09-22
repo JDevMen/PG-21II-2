@@ -9,6 +9,12 @@ public class paddle_script : MonoBehaviour
     private float input;
 
     public float points = 0f;
+
+    //Puntos del jugador
+    public float puntosEnergia = 0f;
+    public float puntosUniversidad = 0f;
+    public float puntosFamilia = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +40,28 @@ public class paddle_script : MonoBehaviour
         if (collision.gameObject.CompareTag("Pelotas"))
         {
             points++;
+            puntosEnergia -= 0.25f;
+            puntosUniversidad -= 0.25f;
+            puntosFamilia -= 0.25f;
+            
         }
 
     }
+
+    public float getPuntosEnergia()
+    {
+        return puntosEnergia;
+    }
+
+    public float getPuntosUniversidad()
+    {
+        return puntosUniversidad;
+    }
+
+    public float getPuntosFamilia()
+    {
+        return puntosFamilia;
+    }
+
+    
 }
