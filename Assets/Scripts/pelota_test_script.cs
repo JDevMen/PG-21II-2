@@ -7,6 +7,9 @@ public class pelota_test_script : MonoBehaviour
     //Velocidad inicial de la pelota
     public float speed = 5f;
 
+    //Tamaño inicial de la pelota
+    public float tamano = 1.0f;
+
     //Variables rebote 
     public int bounce_min = 1;
     public int bounce_max = 6;
@@ -20,10 +23,14 @@ public class pelota_test_script : MonoBehaviour
     //Velocidad máxima alcanzable por la pelota
     public float maxVelocidad = 50f ;
 
+    //Dirección en la que va la bola al crearse
+    public Vector2 direccion;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
+        gameObject.transform.localScale = new Vector3(tamano, tamano, tamano);
+        GetComponent<Rigidbody2D>().velocity = direccion * speed;
         material = GetComponent<CircleCollider2D>().sharedMaterial;
     }
 
@@ -55,10 +62,6 @@ public class pelota_test_script : MonoBehaviour
     {
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
-        //Debug.Log(rigidBody.velocity.x);
-        //Debug.Log(rigidBody.velocity.y);
-        Debug.Log("Velocidad pelota: "+rigidBody.velocity.magnitude);
-        Debug.Log("Rebote pelota: " + circleCollider.bounciness);
 
         if (rigidBody.velocity.magnitude > factorCambioVelocidad)
             rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxVelocidad);
