@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 1395596961}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: tamanoPelota
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: player_bounces

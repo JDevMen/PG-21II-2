@@ -48,7 +48,7 @@ public class SpawnGameObjectTest : MonoBehaviour
         //Instanciación del prefab para generar una nueva pelota
         GameObject pelotaCopy = Instantiate(pelotaPrefab, reticle.transform.position, Quaternion.identity);
         pelotaCopy.GetComponent<pelota_test_script>().speed = velocidadPelota;
-
+        pelotaCopy.GetComponent<pelota_test_script>().tamano = tamanoPelota;
         pelotaCopy.GetComponent<pelota_test_script>().bounce_min = bounce_min;
         pelotaCopy.GetComponent<pelota_test_script>().bounce_max = bounce_max;
         pelotaCopy.GetComponent<pelota_test_script>().player_bounces = player_bounces;
