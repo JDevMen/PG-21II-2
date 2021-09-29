@@ -20,6 +20,9 @@ public class pelota_test_script : MonoBehaviour
     //Variable factor cambio de velocidad (magnitud de vector velocidad)
     public float factorCambioVelocidad = 1.2f;
 
+    //Velocidad mínima que debe tener la pelota
+    public float minVelocidad = 3f ; 
+
     //Velocidad máxima alcanzable por la pelota
     public float maxVelocidad = 50f ;
 
@@ -63,10 +66,13 @@ public class pelota_test_script : MonoBehaviour
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
         CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
 
-        if (rigidBody.velocity.magnitude > factorCambioVelocidad)
+        if (rigidBody.velocity.magnitude > maxVelocidad)
             rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxVelocidad);
 
-        
+        if (rigidBody.velocity.magnitude < minVelocidad)
+            rigidBody.velocity = rigidBody.velocity.normalized * minVelocidad;
+
+        speed = rigidBody.velocity.magnitude;
     }
     
     //Funci�n inicial de prueba
