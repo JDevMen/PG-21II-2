@@ -15,10 +15,22 @@ public class paddle_script : MonoBehaviour
     public float puntosUniversidad = 0f;
     public float puntosFamilia = 0f;
 
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
+        {
+            Debug.LogError("Player missing Rigidbody2D component");
+        }
+    }
+
+    private void MovePlayer()
+    {
+        var horizontalInput = Input.GetAxisRaw("Horizontal");
+
     }
 
     // Update is called once per frame
@@ -26,14 +38,15 @@ public class paddle_script : MonoBehaviour
     {
         input = Input.GetAxisRaw("Horizontal");
 
-        
-    }
-
-    private void FixedUpdate()
-    {
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
+        rb.velocity = Vector2.right * input * speed;
 
     }
+
+    //private void FixedUpdate()
+    //{
+    //    GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
+
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
