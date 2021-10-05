@@ -1,22 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
+    
+    public static bool estaPausado = false;
+
+    public GameObject menuPausaUI;
+    public Button botonPausa;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Button boton = botonPausa.GetComponent<Button>();
+        boton.onClick.AddListener(TaskOnClick);
+    }
+
+    void TaskOnClick()
+    {
+        if (estaPausado)
+        {
+            Continuar();
+        }
+        else
+        {
+            Pausar();
+        }
     }
 
 
-    public static bool estaPausado = false;
-   
-
-
-    public GameObject menuPausaUI;
+    
 
     // Update is called once per frame
     void Update()
