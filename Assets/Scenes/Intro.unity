@@ -704,7 +704,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xBFTu meta?\n\nRecolectar la mayor cantidad de pelotas que puedas. Pero
     cuidado!\n\nTienes que tratar de mantener un balance entre estos.\n\nDe no hacerlo,
-    podr\xEDas verte penalizado o sufrir las consecuencias de estos descuidos"
+    podr\xEDas verte penalizado o sufrir las consecuencias de estos descuidos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -857,9 +857,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Como en la vida, a veces suceden cosas que se salen de nuestro control,
-    a veces buenas, a veces malas. \n\nSi recoges una de estas puede activarse un
-    evento aleatorio de la misma naturaleza. Queda en tus manos!"
+  m_text: "A veces suceden cosas que se salen de nuestro control, a veces buenas,
+    a veces malas. \n\nSi recoges una de estas puede activarse un evento aleatorio
+    de la misma naturaleza."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -993,8 +993,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hola!\n\n\xBFQu\xE9 tal las vacaciones?\n\n\n\xBFEst\xE1s listo para tu
-    \xFAltimo semestre de carrera universitaria?"
+  m_text: "Hola!\n\n\xBFQu\xE9 tal las vacaciones?\n\n\xBFEst\xE1s listo para otro
+    semestre de carrera universitaria?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1203,9 +1203,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hay un par de cosas que tienes que recordar antes de comenzar!\n\nA lo
-    largo de este semestre, tendr\xE1s que ir recolectando pelotas cuyo color representan
-    algunos de los aspectos m\xE1s relevantes de tu vida."
+  m_text: "A lo largo de este semestre, tendr\xE1s que ir recolectando pelotas cuyo
+    color representan algunos de los aspectos m\xE1s relevantes de tu vida."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

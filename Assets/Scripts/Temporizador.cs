@@ -9,16 +9,19 @@ public class Temporizador : MonoBehaviour
 {
     public int tiempo = 20;
     public Text tiempoDisplay;
+    public Slider tiempoDisplay2;
     public GameObject menuPausa;
 
     private void Start()
     {
         Contador();
+        tiempoDisplay2.maxValue = tiempo;
     }
 
     private void Update()
     {
-        
+        tiempoDisplay2.value = tiempo;
+
         if(tiempo == 0)
         {
             SceneManager.LoadScene("Menu");
