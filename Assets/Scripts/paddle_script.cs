@@ -142,4 +142,5 @@ public class paddle_script : MonoBehaviour
 
         Debug.Log("Debuff terminado");
     }
+    public float getPuntosFamilia()
 }

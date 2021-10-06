@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8970881581268061566}
   - component: {fileID: 8604211214707302837}
   - component: {fileID: 4021664190435085301}
-  - component: {fileID: 326948402503663863}
+  - component: {fileID: 7842668666960654939}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Pelota base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1910321114343366458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.25, y: -0.77, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,11 +101,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ed6868a7728dd2047843be3e14c00e85, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &4021664190435085301
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,14 +115,14 @@ CircleCollider2D:
   m_GameObject: {fileID: 1910321114343366458}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ed6868a7728dd2047843be3e14c00e85, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &326948402503663863
+--- !u!114 &7842668666960654939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1910321114343366458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79fc2f36ae199945800e791c2d83779, type: 3}
+  m_Script: {fileID: 11500000, guid: cd3b9e2e996384d419c98b8ff3a13c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  player_bounces: 1
+  tamano: 1
+  bounce_min: 1
+  bounce_max: 6
+  player_bounces: 0
+  factorCambioVelocidad: 1.2
+  maxVelocidad: 50
+  direccion: {x: 0, y: 0}
