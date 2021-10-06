@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6340119463633797236}
-  - component: {fileID: 6340119463633797239}
+  - component: {fileID: 3891081931664732463}
   m_Layer: 0
   m_Name: GeneradorObjetos
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6340119463633797239
+--- !u!114 &3891081931664732463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,13 +124,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6340119463633797238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ec007eb89315941b975e89b976b6b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 476f55e65b5f56045b7a86b6a364ce81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pelotaPrefab: {fileID: 1910321114343366458, guid: 8f8254e67786c1a4cbd9a2634b67afe8, type: 3}
-  minSecondsBetweenSpawning: 0
-  maxSecondsBetweenSpawning: 2
-  velocidadPelota: 10
+  pelotaPrefab: {fileID: 1910321114343366458, guid: 5069711d5ab599a429734ac04796e422, type: 3}
+  minSecondsBetweenSpawning: 3
+  maxSecondsBetweenSpawning: 6
+  velocidadPelota: 5
   bounce_min: 1
   bounce_max: 6
   player_bounces: 1

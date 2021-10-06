@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4021664190435085301}
   - component: {fileID: 7842668666960654939}
   m_Layer: 0
-  m_Name: Pelota test
+  m_Name: Pelota base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotationTest_script : MonoBehaviour
+public class rotation_script : MonoBehaviour
 {
     public float degreesRotation = 30f;
     public float rotationSpeed = 5f;

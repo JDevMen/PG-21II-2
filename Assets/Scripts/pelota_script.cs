@@ -7,24 +7,33 @@ public class pelota_script : MonoBehaviour
     //Velocidad inicial de la pelota
     public float speed = 5f;
 
+    //Tamaño inicial de la pelota
+    public float tamano = 1.0f;
+
     //Variables rebote 
     public int bounce_min = 1;
     public int bounce_max = 6;
-    public int player_bounces = 1;
+    public int player_bounces =  1;
 
     private PhysicsMaterial2D material;
 
     //Variable factor cambio de velocidad (magnitud de vector velocidad)
     public float factorCambioVelocidad = 1.2f;
 
-    //Velocidad máxima alcanzable por la pelota
-    public float maxVelocidad = 50f;
+    //Velocidad mínima que debe tener la pelota
+    public float minVelocidad = 3f ; 
 
+    //Velocidad máxima alcanzable por la pelota
+    public float maxVelocidad = 50f ;
+
+    //Dirección en la que va la bola al crearse
+    public Vector2 direccion;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
+        gameObject.transform.localScale = new Vector3(tamano, tamano, tamano);
+        GetComponent<Rigidbody2D>().velocity = direccion * speed;
         material = GetComponent<CircleCollider2D>().sharedMaterial;
     }
 
@@ -32,21 +41,40 @@ public class pelota_script : MonoBehaviour
     //Se mantiene para motivios de testing y debugging
     void Update()
     {
-        
+        //Solo para pruebas
+
+        //Cambio de velocidad
+        if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
+        if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
+
+
+        //Cambio de tamaño
+        if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
+        if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
+        if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
+
+        //Cambio de rebote
+        if (Input.GetKeyDown(KeyCode.F7)) cambiarRebote(1.5f);
+        if (Input.GetKeyDown(KeyCode.F8)) cambiarRebote(0.5f);
+        if (Input.GetKeyDown(KeyCode.F9)) cambiarRebote(1f);
+
+
     }
 
     void FixedUpdate()
     {
-        //Obtener componente Rigidbody2D para obtener velocidad del objeto
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
-        Debug.Log("Velocidad pelota: " + rigidBody.velocity.magnitude);
+        CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
 
-        //Limitar velocidad máxima del objeto para evitar problemas de colisión
-        if (rigidBody.velocity.magnitude > factorCambioVelocidad)
+        if (rigidBody.velocity.magnitude > maxVelocidad)
             rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxVelocidad);
 
-    }
+        if (rigidBody.velocity.magnitude < minVelocidad)
+            rigidBody.velocity = rigidBody.velocity.normalized * minVelocidad;
 
+        speed = rigidBody.velocity.magnitude;
+    }
+    
     //Funci�n inicial de prueba
     void Respawn()
     {
