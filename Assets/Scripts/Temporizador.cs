@@ -22,10 +22,15 @@ public class Temporizador : MonoBehaviour
     {
         tiempoDisplay2.value = tiempo;
 
-        if(tiempo == 0)
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        //if(tiempo == 0)
+        //{
+        //    SceneManager.LoadScene("Menu");
+        //}
+    }
+
+    public int getTiempo()
+    {
+        return tiempo;
     }
 
     void Contador()
