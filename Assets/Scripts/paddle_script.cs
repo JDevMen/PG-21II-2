@@ -8,16 +8,36 @@ public class paddle_script : MonoBehaviour
 
     private float input;
 
-    public float pointsEstudio = 0f;
-    public float pointsFelicidad = 0f;
-    public float pointsEnergia = 0f;
+    
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
     // Start is called before the first frame update
+    
+        
+    public float points = 0f;
+
+    //Puntos del jugador
+    public float puntosEnergia = 0f;
+    public float puntosUniversidad = 0f;
+    public float puntosFamilia = 0f;
+
+    private Rigidbody2D rb;
+
+    // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
+        {
+            Debug.LogError("Player missing Rigidbody2D component");
+        }
+    }
+
+    private void MovePlayer()
+    {
+        var horizontalInput = Input.GetAxisRaw("Horizontal");
+
     }
 
     // Update is called once per frame
@@ -29,6 +49,9 @@ public class paddle_script : MonoBehaviour
 
             input = -input;
         }
+        rb.velocity = Vector2.right * input * speed;
+
+    
         
     }
 
@@ -142,5 +165,30 @@ public class paddle_script : MonoBehaviour
 
         Debug.Log("Debuff terminado");
     }
+
+        
+
+    //private void FixedUpdate()
+    //{
+    //    GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
+
+    //}
+
+
+    public float getPuntosEnergia()
+    {
+        return puntosEnergia;
+    }
+
+    public float getPuntosUniversidad()
+    {
+        return puntosUniversidad;
+    }
+
     public float getPuntosFamilia()
+    {
+        return puntosFamilia;
+    }
+
+    
 }
