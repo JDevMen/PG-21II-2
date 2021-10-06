@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Pelotas
   - Piso
+  - UIcanvas
+  - CanvasFinal
+  - GreenBall
+  - RedBall
+  - YellowBall
   layers:
   - Default
   - TransparentFX

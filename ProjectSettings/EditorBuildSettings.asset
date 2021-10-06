@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c9af8046bbcfa7840a2b66ec35f9e5df
   - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 92b54613d58c8e74eafe66bdd89e4f4c
+  - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: 238a5854aba411d4c8340188034cecac
   - enabled: 1
-    path: "Assets/Scenes/Test colisi\xF3n.unity"
-    guid: 097f2073bd230a54f8fff455a0d1b0ab
-  - enabled: 1
+    path: Assets/Scenes/EscenariosFinal.unity
+    guid: fc4b8b86ee06c0e49b0de95b7a963b4f
+  - enabled: 0
     path: "Assets/Scenes/Test integraci\xF3n con jugador.unity"
-    guid: 8f762ec4fba6eb64e91a5614d6e41c33
+    guid: 097f2073bd230a54f8fff455a0d1b0ab
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
