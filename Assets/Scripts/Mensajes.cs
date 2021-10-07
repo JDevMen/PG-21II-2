@@ -9,21 +9,6 @@ public class Mensajes : MonoBehaviour
     public GameObject letrero;
     public TMP_Text textoLetrero;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //textoLetrero = FindObjectOfType<TextMeshProUGUI>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            lanzarMensaje("Hola, probando, mensaje largo largo laergo largo largo largo");
-        }
-    }
-
 
     public void lanzarMensaje(string mensaje)
     {

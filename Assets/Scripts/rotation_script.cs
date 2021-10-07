@@ -14,13 +14,13 @@ public class rotation_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad4)){
-            gameObject.transform.Rotate(Vector3.back*10);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad6))
-        {
-            gameObject.transform.Rotate(Vector3.forward * 10);
-        }
+        //if (Input.GetKeyDown(KeyCode.Keypad4)){
+        //    gameObject.transform.Rotate(Vector3.back*10);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Keypad6))
+        //{
+        //    gameObject.transform.Rotate(Vector3.forward * 10);
+        //}
 
         if(rotationDirection ==1)
         {

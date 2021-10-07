@@ -43,20 +43,20 @@ public class pelota_script : MonoBehaviour
     {
         //Solo para pruebas
 
-        //Cambio de velocidad
-        if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
-        if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
+        ////Cambio de velocidad
+        //if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
+        //if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
 
 
-        //Cambio de tamaño
-        if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
-        if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
-        if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
+        ////Cambio de tamaño
+        //if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
+        //if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
+        //if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
 
-        //Cambio de rebote
-        if (Input.GetKeyDown(KeyCode.F7)) cambiarRebote(1.5f);
-        if (Input.GetKeyDown(KeyCode.F8)) cambiarRebote(0.5f);
-        if (Input.GetKeyDown(KeyCode.F9)) cambiarRebote(1f);
+        ////Cambio de rebote
+        //if (Input.GetKeyDown(KeyCode.F7)) cambiarRebote(1.5f);
+        //if (Input.GetKeyDown(KeyCode.F8)) cambiarRebote(0.5f);
+        //if (Input.GetKeyDown(KeyCode.F9)) cambiarRebote(1f);
 
 
     }
