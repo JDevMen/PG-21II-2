@@ -136,13 +136,13 @@ public class SpawnGameObject : MonoBehaviour
 
         mensajeria.lanzarMensaje("Te sientes abrumado por la cantidad de cosas por hacer");
 
-        minSecondsBetweenSpawning = 0.5f;
-        maxSecondsBetweenSpawning = 1.5f;
+        minSecondsBetweenSpawning = 0.3f;
+        maxSecondsBetweenSpawning = 0.7f;
         eventoActivo = true;
         
         yield return new WaitForSeconds(7);
-        minSecondsBetweenSpawning = 3.0f;
-        maxSecondsBetweenSpawning = 6.0f;
+        minSecondsBetweenSpawning = 0.5f;
+        maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;
         Debug.Log("Debuff terminado");
     }
@@ -152,13 +152,13 @@ public class SpawnGameObject : MonoBehaviour
 
         mensajeria.lanzarMensaje("Por fin llegaron unos días un poco tranquilos");
 
-        minSecondsBetweenSpawning = 5.0f;
-        maxSecondsBetweenSpawning = 7.5f;
+        minSecondsBetweenSpawning = 2.0f;
+        maxSecondsBetweenSpawning = 3.5f;
         eventoActivo = true;
 
         yield return new WaitForSeconds(7);
-        minSecondsBetweenSpawning = 3.0f;
-        maxSecondsBetweenSpawning = 6.0f;
+        minSecondsBetweenSpawning = 0.5f;
+        maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;
         Debug.Log("Debuff terminado");
     }
