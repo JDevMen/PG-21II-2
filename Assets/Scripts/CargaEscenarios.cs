@@ -14,7 +14,7 @@ public class CargaEscenarios : MonoBehaviour
     public void CargarMenu()
     {
         Debug.Log("click");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
         
     }
 

@@ -42,7 +42,7 @@ public class Intro : MonoBehaviour
         else if (texto5.activeSelf == true)
         {
             texto5.SetActive(false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("Juego");
         }
     }
 }
