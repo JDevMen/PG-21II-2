@@ -143,12 +143,12 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator scaleDebuff()
     {
-        transform.localScale = new Vector3(3,1,1);
+        transform.localScale = new Vector3(0.5f,0.5f,1);
         eventoActivo = true;
         mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dificil cumplir tus tareas");
     
         yield return new WaitForSeconds(7);
-        transform.localScale = new Vector3(5, 1, 1);
+        transform.localScale = new Vector3(2, 0.5f, 1);
 
         eventoActivo = false;
         Debug.Log("Debuff terminado");
@@ -156,12 +156,12 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator scaleBuff()
     {
-        transform.localScale = new Vector3(7, 1, 1);
+        transform.localScale = new Vector3(3.5f, 0.5f, 1);
         eventoActivo = true;
         mensajeria.lanzarMensaje("La comida de hoy te dio gusto mucho te sera mas facil cumplir tus tareas");
 
         yield return new WaitForSeconds(7);
-        transform.localScale = new Vector3(5, 1, 1);
+        transform.localScale = new Vector3(2, 0.5f, 1);
 
         eventoActivo = false;
         Debug.Log("Buff terminado");
