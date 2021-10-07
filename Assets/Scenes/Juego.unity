@@ -311,6 +311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeneradorObjetos
       objectReference: {fileID: 0}
+    - target: {fileID: 6340119463633797238, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
+      propertyPath: m_TagString
+      value: Generador
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
 --- !u!1 &925796452

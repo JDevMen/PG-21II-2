@@ -11,6 +11,8 @@ public class paddle_script : MonoBehaviour
 
     public Mensajes mensajeria;
 
+    public SpawnGameObject generadorScript;
+
     
 
    
@@ -38,6 +40,10 @@ public class paddle_script : MonoBehaviour
         {
             Debug.LogError("Player missing Rigidbody2D component");
         }
+
+        GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
+        generadorScript = Generador.GetComponent<SpawnGameObject>();
+
     }
 
     IEnumerator waitForUICoroutine()
@@ -77,7 +83,7 @@ public class paddle_script : MonoBehaviour
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
-        puntosEnergia=0;
+        
 
 
     }
@@ -98,7 +104,7 @@ public class paddle_script : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Evento")&&!eventoActivo)
         {
-            int num = (int) Random.Range(1 , 6);
+            int num = (int) Random.Range(1 , 11);
             switch(num)
             {
                 case 1:
@@ -117,6 +123,21 @@ public class paddle_script : MonoBehaviour
                     break;
                 case 5:
                     StartCoroutine(debuffInput());
+                    break;
+                case 6:
+                    StartCoroutine(generadorScript.DebuffTamañoPelota());
+                    break;
+                case 7:
+                    StartCoroutine(generadorScript.DebuffVelocidadPelota());
+                    break;
+                case 8:
+                    StartCoroutine(generadorScript.BuffVelocidadPelota());
+                    break;
+                case 9:
+                    StartCoroutine(generadorScript.DebuffSpawnTime());
+                    break;
+                case 10:
+                    StartCoroutine(generadorScript.BuffSpawnTime());
                     break;
 
                 default:

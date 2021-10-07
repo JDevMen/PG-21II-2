@@ -52,6 +52,8 @@ public class MenuPausa : MonoBehaviour
 
 
     public void Continuar () {
+         //if()
+        
         menuPausaUI.SetActive(false);
         Time.timeScale = 1f;
         estaPausado = false;

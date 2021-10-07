@@ -12,6 +12,7 @@ TagManager:
   - RedBall
   - YellowBall
   - Evento
+  - Generador
   layers:
   - Default
   - TransparentFX

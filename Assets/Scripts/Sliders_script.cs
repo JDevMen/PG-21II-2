@@ -53,13 +53,15 @@ public class Sliders_script : MonoBehaviour
         else Debug.Log("No se encontr� ning�n jugador en la escena");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (jugadorScript != null)
         {
             energia.value-=0.008f*Time.timeScale;
+            Debug.Log("eneergia.value es "+energia.value);
             energia.value += jugadorScript.puntosEnergia*2;
             universidad.value = jugadorScript.puntosUniversidad;
+            jugadorScript.puntosEnergia = 0;
             familia.value = jugadorScript.puntosFamilia;
             if(energia.value==0){
                 energia.value=10;
