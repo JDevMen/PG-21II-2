@@ -32,16 +32,29 @@ public class paddle_script : MonoBehaviour
     void Start()
     {
 
-        GameObject UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas");
-        Debug.Log(UIcanvas);
-
-        mensajeria = UIcanvas.GetComponent<Mensajes>();
+        StartCoroutine(waitForUICoroutine());
 
         rb = GetComponent<Rigidbody2D>();
         if(rb == null)
         {
             Debug.LogError("Player missing Rigidbody2D component");
         }
+    }
+
+    IEnumerator waitForUICoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        yield return new WaitForSecondsRealtime(1);
+        GameObject UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas");
+        Debug.Log(UIcanvas);
+
+        mensajeria = UIcanvas.GetComponent<Mensajes>();
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+
+
     }
 
     private void MovePlayer()
