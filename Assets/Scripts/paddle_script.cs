@@ -32,11 +32,6 @@ public class paddle_script : MonoBehaviour
     void Start()
     {
 
-        GameObject UIcanvas = GameObject.FindGameObjectWithTag("UIcanvas");
-        Debug.Log(UIcanvas);
-
-        mensajeria = UIcanvas.GetComponent<Mensajes>();
-
         rb = GetComponent<Rigidbody2D>();
         if(rb == null)
         {
@@ -52,7 +47,7 @@ public class paddle_script : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         input = Input.GetAxisRaw("Horizontal");
         if(DebuffInput)
         {
@@ -85,7 +80,6 @@ public class paddle_script : MonoBehaviour
         if (collision.gameObject.CompareTag("Evento")&&!eventoActivo)
         {
             int num = (int) Random.Range(1 , 6);
-            mensajeria.lanzarMensaje("Buff");
             switch(num)
             {
                 case 1:
@@ -120,6 +114,8 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator buff()
     {
+        mensajeria.lanzarMensaje("Haz descansado bien los ultimos 2 dias /n tu velocidad aumenta");
+
         speed = speed * 2;
         eventoActivo = true;
         yield return new WaitForSeconds(7);
@@ -131,7 +127,9 @@ public class paddle_script : MonoBehaviour
     IEnumerator scaleDebuff()
     {
         transform.localScale = new Vector3(3,1,1);
-            eventoActivo = true;
+        eventoActivo = true;
+        mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dificil cumplir tus tareas");
+    
         yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(5, 1, 1);
 
@@ -143,6 +141,8 @@ public class paddle_script : MonoBehaviour
     {
         transform.localScale = new Vector3(7, 1, 1);
         eventoActivo = true;
+        mensajeria.lanzarMensaje("La comida de hoy te dio gusto mucho te sera mas facil cumplir tus tareas");
+
         yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(5, 1, 1);
 
@@ -154,6 +154,8 @@ public class paddle_script : MonoBehaviour
     {
         speed = speed / 3;
         eventoActivo = true;
+        mensajeria.lanzarMensaje("Tuviste una pesadilla, la noche no fue buena para ti y no descansaste");
+
 
         yield return new WaitForSeconds(7);
         speed = speed * 3;
@@ -166,6 +168,7 @@ public class paddle_script : MonoBehaviour
     {
         DebuffInput = true;
         eventoActivo = true;
+        mensajeria.lanzarMensaje("Unos amigos te invitaron a salir anoche y te divertiste demasiado hoy tienes mareo al despertar");
 
         yield return new WaitForSeconds(7);
         DebuffInput = false;
