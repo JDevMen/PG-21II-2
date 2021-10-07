@@ -85,7 +85,7 @@ public class paddle_script : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
         puntosEnergia-=0.008f*Time.timeScale;
-        if(puntosEnergia==0){
+        if(puntosEnergia <=0){
                 puntosEnergia=10;
 
                 StartCoroutine(Dormir());
