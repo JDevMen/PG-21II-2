@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6124311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+  m_PrefabInstance: {fileID: 1107477913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &50221095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,11 +141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalScale.x
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalScale.y
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalScale.z
@@ -148,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 1673050477125748513, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_LocalPosition.z
@@ -189,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 9153186939704891407, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
       propertyPath: m_Name
       value: PelotaRoja
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153186939704891407, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
@@ -234,6 +243,10 @@ MonoBehaviour:
   texto3: {fileID: 708458835}
   texto4: {fileID: 1504119996}
   texto5: {fileID: 1168740933}
+  verde: {fileID: 2018844763}
+  amarillo: {fileID: 6124311}
+  rojo: {fileID: 358858385}
+  evento: {fileID: 829703695}
 --- !u!114 &220620356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +421,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &358858385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153186939704891407, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
+  m_PrefabInstance: {fileID: 50221095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &514311564
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +626,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708458835}
   m_CullTransparentMesh: 1
+--- !u!1 &829703695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1910321114343366458, guid: 5069711d5ab599a429734ac04796e422, type: 3}
+  m_PrefabInstance: {fileID: 1482992388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066851963
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,17 +776,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PelotaAmarilla
       objectReference: {fileID: 0}
+    - target: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalScale.x
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalScale.z
@@ -771,11 +798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 249
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -77
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -963,17 +990,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pelota base
       objectReference: {fileID: 0}
+    - target: {fileID: 1910321114343366458, guid: 5069711d5ab599a429734ac04796e422, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalScale.x
-      value: 128
+      value: 128.384
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalScale.y
-      value: 128
+      value: 128.384
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalScale.z
@@ -981,11 +1012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 429
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 8265138184739307540, guid: 5069711d5ab599a429734ac04796e422, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1112,7 +1143,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.5
+  m_fontSize: 60
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1383,17 +1414,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PelotaVerde
       objectReference: {fileID: 0}
+    - target: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 128
+      value: 75.52
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalScale.z
@@ -1401,15 +1436,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 249
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11520
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1444,6 +1479,11 @@ PrefabInstance:
 --- !u!4 &1864694489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5940256752692854099, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
+  m_PrefabInstance: {fileID: 1864694488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2018844763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
   m_PrefabInstance: {fileID: 1864694488}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023730514
