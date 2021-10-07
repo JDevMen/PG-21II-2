@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pelotas
+  - Piso
+  - UIcanvas
+  - CanvasFinal
+  - GreenBall
+  - RedBall
+  - YellowBall
+  - Evento
+  - Generador
   layers:
   - Default
   - TransparentFX
