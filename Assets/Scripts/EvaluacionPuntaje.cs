@@ -27,7 +27,7 @@ public class EvaluacionPuntaje : MonoBehaviour
         if (player != null)
         {
             jugadorScript = player.GetComponent<paddle_script>();
-            Debug.Log("Se encontró y asignó script de control del jugador.");
+            Debug.Log("Se encontrï¿½ y asignï¿½ script de control del jugador.");
             Debug.Log("-------------------------------");
         }
     }

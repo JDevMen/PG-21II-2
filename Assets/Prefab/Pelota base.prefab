@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7842668666960654939}
   m_Layer: 0
   m_Name: Pelota base
-  m_TagString: Untagged
+  m_TagString: Evento
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,5 +140,6 @@ MonoBehaviour:
   bounce_max: 6
   player_bounces: 0
   factorCambioVelocidad: 1.2
+  minVelocidad: 3
   maxVelocidad: 50
   direccion: {x: 0, y: 0}

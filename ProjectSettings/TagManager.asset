@@ -11,6 +11,7 @@ TagManager:
   - GreenBall
   - RedBall
   - YellowBall
+  - Evento
   layers:
   - Default
   - TransparentFX

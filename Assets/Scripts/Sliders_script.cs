@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sliders_script : MonoBehaviour
 {
-    //Sliders de puntuación jugador
+    //Sliders de puntuaciï¿½n jugador
     public Slider energia;
     public Slider universidad;
     public Slider familia;
@@ -29,26 +29,26 @@ public class Sliders_script : MonoBehaviour
         if (player != null)
         {
             jugadorScript = player.GetComponent<paddle_script>();
-            Debug.Log("Se encontró y asignó script de control del jugador.");
+            Debug.Log("Se encontrï¿½ y asignï¿½ script de control del jugador.");
             Debug.Log("-------------------------------");
 
             puntosEnergia = jugadorScript.getPuntosEnergia();
             puntosUniversidad = jugadorScript.getPuntosUniversidad();
             puntosFamilia = jugadorScript.getPuntosFamilia();
 
-            //Revisión de carga de puntos jugador
+            //Revisiï¿½n de carga de puntos jugador
             Debug.Log("Puntos de energia: " + puntosEnergia);
             Debug.Log("Puntos de universidad: " + puntosUniversidad);
             Debug.Log("Puntos de familia: " + puntosFamilia);
 
-            //Asignación de sliders a puntos del jugador
+            //Asignaciï¿½n de sliders a puntos del jugador
             energia.value = jugadorScript.puntosEnergia;
             universidad.value = jugadorScript.puntosUniversidad;
             familia.value = jugadorScript.puntosFamilia;
 
             
         }
-        else Debug.Log("No se encontró ningún jugador en la escena");
+        else Debug.Log("No se encontrï¿½ ningï¿½n jugador en la escena");
     }
 
     private void Update()

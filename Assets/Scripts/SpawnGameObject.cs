@@ -5,6 +5,9 @@ using UnityEngine;
 public class SpawnGameObject : MonoBehaviour
 {
     public GameObject pelotaPrefab;
+    public GameObject pelotaAmarilla;
+    public GameObject pelotaRoja;
+    public GameObject pelotaVerde;
     public GameObject reticle;
 
     public float minSecondsBetweenSpawning = 3.0f;
@@ -36,7 +39,7 @@ public class SpawnGameObject : MonoBehaviour
 
         if (Time.time - savedTime >= secondsBetweenSpawning) // is it time to spawn again?
         {
-            //Instanciación del prefab para generar una nueva pelota
+            //Instanciaciï¿½n del prefab para generar una nueva pelota
             shootObject();
             savedTime = Time.time; // store for next spawn
             secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
@@ -45,8 +48,11 @@ public class SpawnGameObject : MonoBehaviour
 
     void shootObject()
     {
-        //Instanciación del prefab para generar una nueva pelota
-        GameObject pelotaCopy = Instantiate(pelotaPrefab, reticle.transform.position, Quaternion.identity);
+        //Instanciaciï¿½n del prefab para generar una nueva pelota
+
+        GameObject[] pelotas = {pelotaPrefab,pelotaAmarilla,pelotaRoja,pelotaVerde};
+        GameObject pelotaact= pelotas[Random.Range(0, 4)];
+        GameObject pelotaCopy = Instantiate(pelotaact, reticle.transform.position, Quaternion.identity);
         pelotaCopy.GetComponent<pelota_script>().speed = velocidadPelota;
         pelotaCopy.GetComponent<pelota_script>().tamano = tamanoPelota;
         pelotaCopy.GetComponent<pelota_script>().bounce_min = bounce_min;
