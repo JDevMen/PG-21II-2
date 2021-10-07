@@ -41,6 +41,7 @@ public class paddle_script : MonoBehaviour
             Debug.LogError("Player missing Rigidbody2D component");
         }
 
+        puntosEnergia = 10;
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
         generadorScript = Generador.GetComponent<SpawnGameObject>();
 
@@ -83,7 +84,13 @@ public class paddle_script : MonoBehaviour
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
-        
+        puntosEnergia-=0.008f*Time.timeScale;
+        if(puntosEnergia==0){
+                puntosEnergia=10;
+
+                StartCoroutine(Dormir());
+
+            }
 
 
     }
