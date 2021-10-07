@@ -8,7 +8,7 @@ public class UI_Loader : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null) SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+        if(player != null) SceneManager.LoadScene("UI", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
