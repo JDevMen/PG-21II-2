@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6340119463633797236}
   - component: {fileID: 3891081931664732463}
+  - component: {fileID: 260059773}
   m_Layer: 0
   m_Name: GeneradorObjetos
   m_TagString: Untagged
@@ -128,14 +129,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelotaPrefab: {fileID: 1910321114343366458, guid: 5069711d5ab599a429734ac04796e422, type: 3}
+  pelotaAmarilla: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+  pelotaRoja: {fileID: 9153186939704891407, guid: 47b34516bd4a3ce4eb5b02c62dbb2649, type: 3}
+  pelotaVerde: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
   reticle: {fileID: 9199283083447555408}
-  minSecondsBetweenSpawning: 3
-  maxSecondsBetweenSpawning: 6
+  minSecondsBetweenSpawning: 1
+  maxSecondsBetweenSpawning: 2
   velocidadPelota: 5
   tamanoPelota: 1
   bounce_min: 1
   bounce_max: 6
   player_bounces: 1
+--- !u!114 &260059773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340119463633797238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1913ae154f25142478a36537c1353fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesRotation: 30
+  rotationSpeed: 5
 --- !u!1 &9199283083447555408
 GameObject:
   m_ObjectHideFlags: 0
