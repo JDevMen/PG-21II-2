@@ -62,23 +62,7 @@ public class SpawnGameObject : MonoBehaviour
 
         direction = reticlePos - (Vector2)transform.position;
 
-        if (Input.GetKeyDown(KeyCode.V) && !eventoActivo)
-        {
-            Debug.Log("Se lanza evento 1");
-            StartCoroutine(DebuffTamañoPelota());
-        }
-
-        if (Input.GetKeyDown(KeyCode.C) && !eventoActivo)
-        {
-            Debug.Log("Se lanza evento 2");
-            StartCoroutine(DebuffVelocidadPelota());
-        }
-
-        if (Input.GetKeyDown(KeyCode.X) && !eventoActivo)
-        {
-            Debug.Log("Se lanza evento 3");
-            StartCoroutine(DebuffSpawnTime());
-        }
+        
 
         if (Time.time - savedTime >= secondsBetweenSpawning) // is it time to spawn again?
         {
@@ -168,8 +152,8 @@ public class SpawnGameObject : MonoBehaviour
 
         mensajeria.lanzarMensaje("Por fin llegaron unos días un poco tranquilos");
 
-        minSecondsBetweenSpawning = 0.5f;
-        maxSecondsBetweenSpawning = 1.5f;
+        minSecondsBetweenSpawning = 5.0f;
+        maxSecondsBetweenSpawning = 7.5f;
         eventoActivo = true;
 
         yield return new WaitForSeconds(7);

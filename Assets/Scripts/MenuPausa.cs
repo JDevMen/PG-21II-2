@@ -11,6 +11,7 @@ public class MenuPausa : MonoBehaviour
 
     public GameObject menuPausaUI;
     public Button botonPausa;
+    public GameObject mensaje;
 
     // Start is called before the first frame update
     void Start()
@@ -52,11 +53,17 @@ public class MenuPausa : MonoBehaviour
 
 
     public void Continuar () {
-         //if()
-        
+
         menuPausaUI.SetActive(false);
-        Time.timeScale = 1f;
         estaPausado = false;
+
+        if (mensaje.activeSelf == false)
+        {
+            Time.timeScale = 1f;
+        }
+        
+        
+        
     }
 
     void Pausar () {
