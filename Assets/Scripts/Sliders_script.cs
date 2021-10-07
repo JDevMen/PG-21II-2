@@ -22,7 +22,8 @@ public class Sliders_script : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        energia.maxValue = puntajeMax;
+        energia.maxValue = 10;
+        energia.value= 10;
         universidad.maxValue = puntajeMax;
         familia.maxValue = puntajeMax;
 
@@ -42,9 +43,10 @@ public class Sliders_script : MonoBehaviour
             Debug.Log("Puntos de familia: " + puntosFamilia);
 
             //Asignaci�n de sliders a puntos del jugador
-            energia.value = jugadorScript.puntosEnergia;
+            //energia.value = jugadorScript.puntosEnergia;
             universidad.value = jugadorScript.puntosUniversidad;
             familia.value = jugadorScript.puntosFamilia;
+
 
             
         }
@@ -55,9 +57,16 @@ public class Sliders_script : MonoBehaviour
     {
         if (jugadorScript != null)
         {
-            energia.value = jugadorScript.puntosEnergia;
+            energia.value-=0.008f*Time.timeScale;
+            energia.value += jugadorScript.puntosEnergia*2;
             universidad.value = jugadorScript.puntosUniversidad;
             familia.value = jugadorScript.puntosFamilia;
+            if(energia.value==0){
+                energia.value=10;
+
+                StartCoroutine(jugadorScript.Dormir());
+
+            }
         }
     }
 

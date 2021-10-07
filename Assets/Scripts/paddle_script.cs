@@ -77,6 +77,8 @@ public class paddle_script : MonoBehaviour
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
+        puntosEnergia=0;
+
 
     }
 
@@ -126,6 +128,19 @@ public class paddle_script : MonoBehaviour
         }
 
 
+    }
+
+
+    public IEnumerator Dormir()
+    {
+        mensajeria.lanzarMensaje("Te haz quedado dormido ");
+
+        speed = speed * 0;
+        eventoActivo = true;
+        yield return new WaitForSeconds(2.5f);
+        speed = 5;
+        eventoActivo = false;
+        Debug.Log("Buff terminado");
     }
 
 
