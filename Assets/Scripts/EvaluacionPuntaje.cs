@@ -45,17 +45,17 @@ public class EvaluacionPuntaje : MonoBehaviour
             if (tiempo == 0)
             {
 
-                if (puntosUniversidad > puntosFamilia + 5 && puntosUniversidad > puntosEnergia + 5)
+                if (puntosEnergia <=3)
                 {
-                    escenarioCargar = 1;
+                    escenarioCargar = 3;
                 }
-                else if (puntosFamilia > puntosUniversidad + 5 && puntosFamilia > puntosEnergia + 5)
+                else if (puntosFamilia > puntosUniversidad + 2 )
                 {
                     escenarioCargar = 2;
                 }
-                else if (puntosEnergia > puntosUniversidad + 5 && puntosEnergia > puntosFamilia + 5)
+                else if (puntosUniversidad > puntosFamilia + 2)
                 {
-                    escenarioCargar = 3;
+                    escenarioCargar = 1;
                 }
                 else
                 {

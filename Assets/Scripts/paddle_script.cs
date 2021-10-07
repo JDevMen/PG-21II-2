@@ -102,50 +102,52 @@ public class paddle_script : MonoBehaviour
         {
             puntosEnergia++;
         }
-        if (collision.gameObject.CompareTag("Evento")&&!eventoActivo)
+        if (collision.gameObject.CompareTag("Evento"))
         {
             int num = (int) Random.Range(1 , 11);
-            switch(num)
+            if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
-                case 1:
-                    StartCoroutine(buff());
-                    break;
+                switch (num)
+                {
+                    case 1:
+                        StartCoroutine(buff());
+                        break;
 
-                case 2:
-                    StartCoroutine(debuff());
-                    break;
+                    case 2:
+                        StartCoroutine(debuff());
+                        break;
 
-                case 3:
-                    StartCoroutine(scaleDebuff());
-                    break;
-                case 4:
-                    StartCoroutine(scaleBuff());
-                    break;
-                case 5:
-                    StartCoroutine(debuffInput());
-                    break;
-                case 6:
-                    StartCoroutine(generadorScript.DebuffTamañoPelota());
-                    break;
-                case 7:
-                    StartCoroutine(generadorScript.DebuffVelocidadPelota());
-                    break;
-                case 8:
-                    StartCoroutine(generadorScript.BuffVelocidadPelota());
-                    break;
-                case 9:
-                    StartCoroutine(generadorScript.DebuffSpawnTime());
-                    break;
-                case 10:
-                    StartCoroutine(generadorScript.BuffSpawnTime());
-                    break;
+                    case 3:
+                        StartCoroutine(scaleDebuff());
+                        break;
+                    case 4:
+                        StartCoroutine(scaleBuff());
+                        break;
+                    case 5:
+                        StartCoroutine(debuffInput());
+                        break;
+                    case 6:
+                        StartCoroutine(generadorScript.DebuffTamañoPelota());
+                        break;
+                    case 7:
+                        StartCoroutine(generadorScript.DebuffVelocidadPelota());
+                        break;
+                    case 8:
+                        StartCoroutine(generadorScript.BuffVelocidadPelota());
+                        break;
+                    case 9:
+                        StartCoroutine(generadorScript.DebuffSpawnTime());
+                        break;
+                    case 10:
+                        StartCoroutine(generadorScript.BuffSpawnTime());
+                        break;
 
-                default:
-                break;
+                    default:
+                        break;
+                }
+
+
             }
-
-            
-
         }
 
 

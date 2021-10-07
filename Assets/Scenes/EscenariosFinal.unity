@@ -295,8 +295,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Parece ser que conseguiste descansar bien y cuidar tu salud a lo largo
-    del semestre. Sin embargo dejaste de lado el estudio y tu vida personal.
+  m_text: "Parece ser que descuidaste tu salud, eso no es bueno a\xFAn si lograste
+    equilibrar la universdidad y tu vida personal."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
