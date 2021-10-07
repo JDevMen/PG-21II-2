@@ -128,9 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelotaPrefab: {fileID: 1910321114343366458, guid: 5069711d5ab599a429734ac04796e422, type: 3}
+  reticle: {fileID: 9199283083447555408}
   minSecondsBetweenSpawning: 3
   maxSecondsBetweenSpawning: 6
   velocidadPelota: 5
+  tamanoPelota: 1
   bounce_min: 1
   bounce_max: 6
   player_bounces: 1

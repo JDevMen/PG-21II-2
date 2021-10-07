@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Temporizador : MonoBehaviour
 {
-    public int tiempo = 20;
+    public int tiempo = 5;
     public Text tiempoDisplay;
     public Slider tiempoDisplay2;
     public GameObject menuPausa;

@@ -9,6 +9,7 @@ public class Sliders_script : MonoBehaviour
     public Slider energia;
     public Slider universidad;
     public Slider familia;
+    public int puntajeMax;
 
     private paddle_script jugadorScript;
 
@@ -20,6 +21,11 @@ public class Sliders_script : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        energia.maxValue = puntajeMax;
+        universidad.maxValue = puntajeMax;
+        familia.maxValue = puntajeMax;
+
         if (player != null)
         {
             jugadorScript = player.GetComponent<paddle_script>();

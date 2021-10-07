@@ -2919,6 +2919,8 @@ MonoBehaviour:
   energia: {fileID: 714790783}
   universidad: {fileID: 317941447}
   familia: {fileID: 45747970}
+  puntajeMax: 50
+  freeSlider: 0
 --- !u!114 &1733644515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3084,7 +3086,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 9
-  m_Depth: -1
+  m_Depth: -100
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3740,7 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2ab433b3346454598e7adb4241d1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 20
+  tiempo: 5
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 1558579708}
   menuPausa: {fileID: 1839071620}

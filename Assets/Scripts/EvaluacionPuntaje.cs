@@ -37,31 +37,31 @@ public class EvaluacionPuntaje : MonoBehaviour
     {
         tiempo = temp.getTiempo();
 
-        //puntosEnergia = jugadorScript.getPuntosEnergia();
-        //puntosUniversidad = jugadorScript.getPuntosUniversidad();
-        //puntosFamilia = jugadorScript.getPuntosFamilia();
+        puntosEnergia = jugadorScript.getPuntosEnergia();
+        puntosUniversidad = jugadorScript.getPuntosUniversidad();
+        puntosFamilia = jugadorScript.getPuntosFamilia();
 
         if (tiempo == 0)
         {
-            
-        //    if(puntosUniversidad > puntosFamilia + 5 && puntosUniversidad > puntosEnergia + 5 )
-        //    {
-        //        escenarioCargar = 1;
-        //    }
-        //    else if (puntosFamilia > puntosUniversidad + 5 && puntosFamilia > puntosEnergia + 5)
-        //    {
-        //        escenarioCargar = 2;
-        //    }
-        //    else if (puntosEnergia > puntosUniversidad + 5 && puntosEnergia > puntosFamilia + 5)
-        //    {
-        //        escenarioCargar = 3;
-        //    }
-        //    else
-        //    {
-        //        escenarioCargar = 4;
-        //    }
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (puntosUniversidad > puntosFamilia + 5 && puntosUniversidad > puntosEnergia + 5)
+            {
+                escenarioCargar = 1;
+            }
+            else if (puntosFamilia > puntosUniversidad + 5 && puntosFamilia > puntosEnergia + 5)
+            {
+                escenarioCargar = 2;
+            }
+            else if (puntosEnergia > puntosUniversidad + 5 && puntosEnergia > puntosFamilia + 5)
+            {
+                escenarioCargar = 3;
+            }
+            else
+            {
+                escenarioCargar = 4;
+            }
+
+            SceneManager.LoadScene("EscenariosFinal");
         }
     }
 
