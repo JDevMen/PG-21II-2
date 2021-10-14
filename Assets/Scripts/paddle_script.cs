@@ -163,7 +163,7 @@ public class paddle_script : MonoBehaviour
 
     public IEnumerator Dormir()
     {
-        mensajeria.lanzarMensaje("Te haz quedado dormido ");
+        mensajeria.lanzarMensaje("Te has quedado dormido");
 
         speed = speed * 0;
         eventoActivo = true;
@@ -176,7 +176,7 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator buff()
     {
-        mensajeria.lanzarMensaje("Haz descansado bien los ultimos 2 dias tu velocidad aumenta");
+        mensajeria.lanzarMensaje("Has descansado bien los últimos 2 dias tu velocidad aumenta");
 
         speed = speed * 2;
         eventoActivo = true;
@@ -190,7 +190,7 @@ public class paddle_script : MonoBehaviour
     {
         transform.localScale = new Vector3(0.5f,0.5f,1);
         eventoActivo = true;
-        mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dificil cumplir tus tareas");
+        mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dïficil cumplir tus tareas");
     
         yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(2, 0.5f, 1);
@@ -203,7 +203,7 @@ public class paddle_script : MonoBehaviour
     {
         transform.localScale = new Vector3(3.5f, 0.5f, 1);
         eventoActivo = true;
-        mensajeria.lanzarMensaje("La comida de hoy te dio gusto mucho te sera mas facil cumplir tus tareas");
+        mensajeria.lanzarMensaje("La comida de hoy te dio mucho gusto te sera mas facil cumplir tus tareas");
 
         yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(2, 0.5f, 1);
