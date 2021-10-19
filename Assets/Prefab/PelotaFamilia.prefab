@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_Name
-      value: PelotaAmarilla
+      value: PelotaFamilia
       objectReference: {fileID: 0}
     - target: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_TagString

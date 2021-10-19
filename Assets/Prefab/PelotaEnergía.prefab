@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_Name
-      value: PelotaRoja
+      value: "PelotaEnerg\xEDa"
       objectReference: {fileID: 0}
     - target: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_TagString
