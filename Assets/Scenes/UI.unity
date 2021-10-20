@@ -615,7 +615,7 @@ RectTransform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 1733644512}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -882,7 +882,7 @@ RectTransform:
   - {fileID: 1658837676}
   - {fileID: 1527891379}
   m_Father: {fileID: 1733644512}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1592,11 +1592,11 @@ RectTransform:
   m_Children:
   - {fileID: 4100940759721274498}
   - {fileID: 8135331234797826057}
+  - {fileID: 438542767704116799}
   - {fileID: 2146767830}
   - {fileID: 1153847553}
   - {fileID: 1839071621}
   - {fileID: 629112018}
-  - {fileID: 438542767704116799}
   - {fileID: 2005174338}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energia: {fileID: 4100940759721274499}
   universidad: {fileID: 8135331234797826058}
-  familia: {fileID: 0}
+  familia: {fileID: 438542767704116796}
   puntajeMax: 20
 --- !u!114 &1733644515
 MonoBehaviour:
@@ -1712,7 +1712,7 @@ RectTransform:
   - {fileID: 2096066260}
   - {fileID: 363304114}
   m_Father: {fileID: 1733644512}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1998,7 +1998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3220659023442343301, guid: d59af3ac28fcf4659a909211f7356283, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3220659023442343301, guid: d59af3ac28fcf4659a909211f7356283, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2383,7 +2383,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1733644512}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2406,6 +2406,17 @@ MonoBehaviour:
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 0}
   menuPausa: {fileID: 1839071620}
+--- !u!114 &438542767704116796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3786546383907362591, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
+  m_PrefabInstance: {fileID: 3646375888330987811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &438542767704116799 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3786546383907362588, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
@@ -2432,7 +2443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3786546383907362588, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3786546383907362588, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
       propertyPath: m_AnchorMax.x
