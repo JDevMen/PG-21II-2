@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!58 &6413763202433019679
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153186939704891407}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.28
 --- !u!1001 &8351823026767856304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9,7 +25,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_Name
-      value: PelotaRoja
+      value: "PelotaEnerg\xEDa"
       objectReference: {fileID: 0}
     - target: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_TagString
@@ -18,6 +34,14 @@ PrefabInstance:
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7264442815232198033, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60,16 +84,42 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3542f5b7d1edd9941825b740bca6ae24, type: 3}
+    - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_Color.b
-      value: 0.003921569
+      value: 0.7866278
       objectReference: {fileID: 0}
     - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_Color.g
-      value: 0.003921569
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
       propertyPath: m_Color.r
-      value: 0.75294125
+      value: 0.724
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7646318765222217979, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2426320230614584944, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+--- !u!1 &9153186939704891407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 928029379038534335, guid: ff34649f96cbb37458cd619309ba51ea, type: 3}
+  m_PrefabInstance: {fileID: 8351823026767856304}
+  m_PrefabAsset: {fileID: 0}
