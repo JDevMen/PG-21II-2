@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 1201524410}
   - component: {fileID: 1201524411}
   m_Layer: 0
-  m_Name: pilates-ball
+  m_Name: pelota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1690,6 +1690,7 @@ GameObject:
   - component: {fileID: 1733644515}
   - component: {fileID: 1733644516}
   - component: {fileID: 1733644517}
+  - component: {fileID: 1733644518}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: UIcanvas
@@ -1860,6 +1861,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9033e68670f2eeb47afeeedba41c534b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1733644518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733644508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe40fef058945e409ea5610e3e45981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pelotaEventUI: {fileID: 1201524408}
+  jugadorEventUI: {fileID: 1880503283}
 --- !u!1 &1839071620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,7 +2039,7 @@ GameObject:
   - component: {fileID: 1880503285}
   - component: {fileID: 1880503286}
   m_Layer: 0
-  m_Name: paddle
+  m_Name: jugador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
