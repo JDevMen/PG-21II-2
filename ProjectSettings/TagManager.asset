@@ -13,6 +13,8 @@ TagManager:
   - YellowBall
   - Evento
   - Generador
+  - pJugador
+  - pOscuro
   layers:
   - Default
   - TransparentFX
