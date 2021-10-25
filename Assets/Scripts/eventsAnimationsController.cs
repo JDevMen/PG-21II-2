@@ -11,6 +11,9 @@ public class eventsAnimationsController : MonoBehaviour
     public Sprite pelotaSprite1;
     public Sprite pelotaSprite2;
 
+    //Sprites de eventos
+    private Sprite debuffTamanoPelota;
+
 
     private Animator pelotaAnimator;
     private Animator jugadorAnimator;
