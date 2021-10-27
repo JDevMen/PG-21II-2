@@ -1,6 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class eventsAnimationsController : MonoBehaviour
 {
@@ -34,6 +35,16 @@ public class eventsAnimationsController : MonoBehaviour
             pelotaAnimator.Play("lookAtMe");
         }
 
+        if(Input.GetKey(KeyCode.F2))
+        {
+            changeBallEventSprite("ballEvent1");
+        }
+        if (Input.GetKey(KeyCode.F3))
+        {
+            changePlayerEventSprite("playerEvent1");
+        }
+
+
     }
 
     public IEnumerator pelotaAnimationCoroutine(float pDuracion)
@@ -59,6 +70,21 @@ public class eventsAnimationsController : MonoBehaviour
         {
             icons[i] = (Sprite)loadedIcons[i];
         }
+
+    }
+
+    public void changeBallEventSprite(string pNombre)
+    {
+        Sprite nuevo = Array.Find(icons, i => i.name == pNombre);
+
+        pelotaEventUI.GetComponent<Image>().sprite = nuevo;
+
+    }
+    public void changePlayerEventSprite(string pNombre)
+    {
+        Sprite nuevo = Array.Find(icons, i => i.name == pNombre);
+
+        jugadorEventUI.GetComponent<Image>().sprite = nuevo;
 
     }
 
