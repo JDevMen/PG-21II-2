@@ -14,6 +14,8 @@ public class SpawnGameObject : MonoBehaviour
     public bool eventoActivo = false;
     private Temporizador temp;
 
+    private eventsAnimationsController eventsAnimationController;
+
 
     public float minSecondsBetweenSpawning = 3.0f;
     public float maxSecondsBetweenSpawning = 6.0f;
@@ -52,7 +54,9 @@ public class SpawnGameObject : MonoBehaviour
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
 
+        GameObject canvas = GameObject.FindGameObjectWithTag("UIcanvas");
 
+        eventsAnimationController = canvas.GetComponent<eventsAnimationsController>();
     }
 
     // Update is called once per frame
@@ -99,7 +103,9 @@ public class SpawnGameObject : MonoBehaviour
         tamanoPelota = tamanoPelota/ 2;
 
         eventoActivo = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         tamanoPelota = tamanoPelota * 2;
         eventoActivo = false;
         Debug.Log("Debuff terminado");
@@ -112,7 +118,9 @@ public class SpawnGameObject : MonoBehaviour
         velocidadPelota = velocidadPelota * 2;
 
         eventoActivo = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         velocidadPelota = velocidadPelota / 2;
         eventoActivo = false;
         Debug.Log("Debuff terminado");
@@ -125,7 +133,9 @@ public class SpawnGameObject : MonoBehaviour
         velocidadPelota = velocidadPelota / 2;
 
         eventoActivo = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         velocidadPelota = velocidadPelota * 2;
         eventoActivo = false;
         Debug.Log("Debuff terminado");
@@ -139,8 +149,10 @@ public class SpawnGameObject : MonoBehaviour
         minSecondsBetweenSpawning = 0.3f;
         maxSecondsBetweenSpawning = 0.7f;
         eventoActivo = true;
-        
-        yield return new WaitForSeconds(7);
+
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         minSecondsBetweenSpawning = 0.5f;
         maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;
@@ -156,7 +168,9 @@ public class SpawnGameObject : MonoBehaviour
         maxSecondsBetweenSpawning = 3.5f;
         eventoActivo = true;
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         minSecondsBetweenSpawning = 0.5f;
         maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;

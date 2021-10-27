@@ -49,13 +49,14 @@ public class eventsAnimationsController : MonoBehaviour
 
     public IEnumerator pelotaAnimationCoroutine(float pDuracion)
     {
-        pelotaAnimator.Play("EventoPelotaAnimation");
+        pelotaAnimator.Play("lookAtMe");
         yield return new WaitForSeconds(pDuracion);
         pelotaAnimator.Play("Default");
     }
     public IEnumerator jugadorAnimationCoroutine(float pDuracion)
     {
-        jugadorAnimator.Play("EventoJugadorAnimation");
+        Debug.Log("Entró jugadorAnimationCoroutine");
+        jugadorAnimator.Play("lookAtMe");
         yield return new WaitForSeconds(pDuracion);
         jugadorAnimator.Play("Default");
     }
