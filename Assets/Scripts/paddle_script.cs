@@ -8,18 +8,16 @@ public class paddle_script : MonoBehaviour
 
     private float input;
 
+    public int numDormido;
+
+
     public Mensajes mensajeria;
 
     public SpawnGameObject generadorScript;
 
-    public eventsAnimationsController eventsAnimationController;
+    
 
-    private GameObject iconosEventos;
-    private GameObject iconoPelota;
-    private GameObject iconoJugador;
-
-
-
+   
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
@@ -49,7 +47,6 @@ public class paddle_script : MonoBehaviour
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
         generadorScript = Generador.GetComponent<SpawnGameObject>();
 
-
     }
 
     IEnumerator waitForUICoroutine()
@@ -65,14 +62,6 @@ public class paddle_script : MonoBehaviour
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("UIcanvas");
-
-        iconosEventos = canvas.transform.Find("iconosEventos").gameObject;
-
-        iconoPelota = iconosEventos.transform.Find("eventoPelotaIcon").gameObject;
-        iconoJugador = iconosEventos.transform.Find("eventoJugadorIcon").gameObject;
-
-        eventsAnimationController = canvas.GetComponent<eventsAnimationsController>();
 
     }
 
@@ -105,20 +94,6 @@ public class paddle_script : MonoBehaviour
 
             }
 
-        if (iconosEventos != null)
-        {
-            if (generadorScript.eventoActivo)
-                iconoPelota.SetActive(true);
-            else
-                iconoPelota.SetActive(false);
-
-            if (this.eventoActivo)
-            {
-                iconoJugador.SetActive(true);
-            }
-            else
-                iconoJugador.SetActive(false);
-        }
 
     }
 
@@ -145,45 +120,35 @@ public class paddle_script : MonoBehaviour
                 {
                     case 1:
                         StartCoroutine(buff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent1");
                         break;
 
                     case 2:
                         StartCoroutine(debuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent2");
                         break;
 
                     case 3:
                         StartCoroutine(scaleDebuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent3");
                         break;
                     case 4:
                         StartCoroutine(scaleBuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent4");
                         break;
                     case 5:
                         StartCoroutine(debuffInput());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent5");
                         break;
                     case 6:
                         StartCoroutine(generadorScript.DebuffTamañoPelota());
-                        eventsAnimationController.changeBallEventSprite("ballEvent1");
                         break;
                     case 7:
                         StartCoroutine(generadorScript.DebuffVelocidadPelota());
-                        eventsAnimationController.changeBallEventSprite("ballEvent2");
                         break;
                     case 8:
                         StartCoroutine(generadorScript.BuffVelocidadPelota());
-                        eventsAnimationController.changeBallEventSprite("ballEvent3");
                         break;
                     case 9:
                         StartCoroutine(generadorScript.DebuffSpawnTime());
-                        eventsAnimationController.changeBallEventSprite("ballEvent4");
                         break;
                     case 10:
                         StartCoroutine(generadorScript.BuffSpawnTime());
-                        eventsAnimationController.changeBallEventSprite("ballEvent5");
                         break;
 
                     default:
@@ -202,6 +167,8 @@ public class paddle_script : MonoBehaviour
     {
         mensajeria.lanzarMensaje("Te has quedado dormido");
 
+        numDormido++;
+
         speed = speed * 0;
         eventoActivo = true;
         yield return new WaitForSeconds(2.5f);
@@ -217,9 +184,7 @@ public class paddle_script : MonoBehaviour
 
         speed = speed * 2;
         eventoActivo = true;
-        yield return new WaitForSeconds(5);
-        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(7);
         speed = speed / 2;
         eventoActivo = false;
         Debug.Log("Buff terminado");
@@ -230,9 +195,8 @@ public class paddle_script : MonoBehaviour
         transform.localScale = new Vector3(0.5f,0.5f,1);
         eventoActivo = true;
         mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dïficil cumplir tus tareas");
-        yield return new WaitForSeconds(5);
-        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
-        yield return new WaitForSeconds(2);
+    
+        yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(2, 2f, 1);
 
         eventoActivo = false;
@@ -245,9 +209,7 @@ public class paddle_script : MonoBehaviour
         eventoActivo = true;
         mensajeria.lanzarMensaje("La comida de hoy te dio mucho gusto te sera mas facil cumplir tus tareas");
 
-        yield return new WaitForSeconds(5);
-        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(7);
         transform.localScale = new Vector3(2, 2f, 1);
 
         eventoActivo = false;
@@ -260,9 +222,8 @@ public class paddle_script : MonoBehaviour
         eventoActivo = true;
         mensajeria.lanzarMensaje("Tuviste una pesadilla, la noche no fue buena para ti y no descansaste");
 
-        yield return new WaitForSeconds(5);
-        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(7);
         speed = speed * 3;
         eventoActivo = false;
 
@@ -275,9 +236,7 @@ public class paddle_script : MonoBehaviour
         eventoActivo = true;
         mensajeria.lanzarMensaje("Unos amigos te invitaron a salir anoche y te divertiste demasiado hoy tienes mareo al despertar");
 
-        yield return new WaitForSeconds(5);
-        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(7);
         DebuffInput = false;
         eventoActivo = false;
 
