@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!58 &124001104231834392
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928029379038534335}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.28
 --- !u!1001 &3936273940998174914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +71,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6317406694967581938, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6682596571267985465, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
       propertyPath: m_Size.x
       value: 2.56
@@ -117,8 +105,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
---- !u!1 &928029379038534335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4197761151807087229, guid: 68780dcf57f325e46ae7574b5159ca4b, type: 3}
-  m_PrefabInstance: {fileID: 3936273940998174914}
-  m_PrefabAsset: {fileID: 0}
