@@ -2943,6 +2943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pelotaEventUI: {fileID: 2040504024}
   jugadorEventUI: {fileID: 987758680}
+  barraUniversidadUI: {fileID: 5993276612639002797}
+  barraFamiliaUI: {fileID: 3646375888330987812}
 --- !u!114 &1733644519
 MonoBehaviour:
   m_ObjectHideFlags: 0
