@@ -122,7 +122,7 @@ public class eventsAnimationsController : MonoBehaviour
     public void activateUniversidadDangerAnimation()
     {
         Debug.Log("Entró a universidadAnimation");
-        barraUniversidadAnimator.Play("DangerAnimation");
+        barraUniversidadAnimator.Play("dangerAnimation");
     }
 
     public void deactivateUniversidadDangerAnimation()
@@ -135,7 +135,7 @@ public class eventsAnimationsController : MonoBehaviour
     public void activateFamiliaDangerAnimation()
     {
         Debug.Log("Entró a familiaAnimation");
-        barrafamiliaAnimator.Play("DangerAnimation");
+        barrafamiliaAnimator.Play("dangerAnimation");
     }
 
     public void deactivatefamiliaDangerAnimation()
