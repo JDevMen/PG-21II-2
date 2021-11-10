@@ -2674,6 +2674,7 @@ GameObject:
   - component: {fileID: 1733644518}
   - component: {fileID: 1733644520}
   - component: {fileID: 1733644519}
+  - component: {fileID: 1733644521}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: UIcanvas
@@ -2834,10 +2835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2ab433b3346454598e7adb4241d1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 60
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 584922575}
   menuPausa: {fileID: 1839071620}
+  tiempoParaCalcular: 0
 --- !u!114 &1733644517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,6 +2908,19 @@ MonoBehaviour:
   botonPausa: {fileID: 629112017}
   textoBoton: {fileID: 862024314}
   mensajeria: {fileID: 0}
+--- !u!114 &1733644521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733644508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c27ec0560a4e1f4fa861d190e19d77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanzadorScript: {fileID: 0}
 --- !u!1 &1825195849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,10 +3848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2ab433b3346454598e7adb4241d1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 5
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 0}
   menuPausa: {fileID: 1839071620}
+  tiempoParaCalcular: 0
 --- !u!114 &438542767704116796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3786546383907362591, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
