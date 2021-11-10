@@ -9,14 +9,25 @@ public class castigoScript : MonoBehaviour
 
     private paddle_script jugadorScript;
     private int puntosParaCastigo;
+    private int puntosAntesCastigo;
     public int puntosCastigo=1;
+
+    private eventsAnimationsController animationController;
+
+    private bool warningFamilia = false;
+    private bool warningUniversidad = false;
+    private bool dangerFamilia = false;
+    private bool dangerUniversidad= false;
 
     private void Start()
     {
         GameObject jugador = GameObject.FindGameObjectWithTag("Player");
         jugadorScript = jugador.GetComponent<paddle_script>();
         puntosParaCastigo = jugadorScript.puntosInicioCastigo;
+        puntosAntesCastigo = jugadorScript.puntosAntesDeCastigo;
         Debug.Log("puntos para castigo " + puntosParaCastigo);
+
+        animationController = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<eventsAnimationsController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,8 +48,18 @@ public class castigoScript : MonoBehaviour
 
         Debug.Log(debugMessage);
 
+        if(puntosFamilia>= puntosAntesCastigo && puntosFamilia<puntosParaCastigo)
+        {
+
+        }
+
         if (puntosFamilia >= puntosParaCastigo && pelotaColisionada.CompareTag("YellowBall"))
+        {
             castigarFamilia();
+
+
+
+        }
         if (puntosUniversidad >= puntosParaCastigo && pelotaColisionada.CompareTag("GreenBall"))
             castigarUniversidad();
     }

@@ -103,6 +103,52 @@ public class eventsAnimationsController : MonoBehaviour
             new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
     }
 
+    public void activateFamiliaWarningAnimation()
+    {
+        Debug.Log("Entró a familiaAnimation");
+        barrafamiliaAnimator.Play("warningAnimation");
+    }
+
+    public void deactivatefamiliaWarningAnimation()
+    {
+        barrafamiliaAnimator.Play("Default");
+        barraFamiliaUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+
+    //Animaciones de danger de barras universidad y familia
+
+    public void activateUniversidadDangerAnimation()
+    {
+        Debug.Log("Entró a universidadAnimation");
+        barraUniversidadAnimator.Play("DangerAnimation");
+    }
+
+    public void deactivateUniversidadDangerAnimation()
+    {
+        barraUniversidadAnimator.Play("Default");
+        barraUniversidadUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+    public void activateFamiliaDangerAnimation()
+    {
+        Debug.Log("Entró a familiaAnimation");
+        barrafamiliaAnimator.Play("DangerAnimation");
+    }
+
+    public void deactivatefamiliaDangerAnimation()
+    {
+        barrafamiliaAnimator.Play("Default");
+        barraFamiliaUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+
+
+
+
 
 
     void loadIcons()

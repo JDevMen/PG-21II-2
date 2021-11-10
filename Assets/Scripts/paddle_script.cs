@@ -12,6 +12,7 @@ public class paddle_script : MonoBehaviour
 
     //Puntos necesarios para empezar a ser castigado
     public int puntosInicioCastigo = 3;
+    public int puntosAntesDeCastigo;
 
     public Mensajes mensajeria;
 
@@ -20,8 +21,6 @@ public class paddle_script : MonoBehaviour
     //Script castigo
     private castigoScript castigoScript;
 
-
-   
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
