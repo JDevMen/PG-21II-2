@@ -43,11 +43,8 @@ public class SpawnGameObject : MonoBehaviour
 
         savedTime = Time.time;
         secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
-        
-        porcentajeEvento = 20;
-        porcentajeFamilia = 30;
-        porcentajeEnergia = 30;
-        porcentajeUniversidad = 30;
+
+        setPorcentajesIniciales();
     }
 
     IEnumerator waitForUICoroutine()
@@ -112,7 +109,7 @@ public class SpawnGameObject : MonoBehaviour
     {
 
         int suma = p1 + p2 + p3 + p4;
-        int porcentaje = Random.Range(0, suma);
+        int porcentaje = Random.Range(1, suma);
 
         if(porcentaje <  p1)
         {
@@ -133,12 +130,20 @@ public class SpawnGameObject : MonoBehaviour
         
     }
 
-    void modificarPorcentajes(int pEvento, int pFamilia, int pEnergia, int pUniversidad)
+    public void modificarPorcentajes(int pEvento, int pFamilia, int pEnergia, int pUniversidad)
     {
         porcentajeEvento = pEvento;
         porcentajeFamilia = pFamilia;
         porcentajeEnergia = pEnergia;
         porcentajeUniversidad = pUniversidad;
+    }
+
+    public void setPorcentajesIniciales()
+    {
+        porcentajeEvento = 20;
+        porcentajeFamilia = 30;
+        porcentajeEnergia = 30;
+        porcentajeUniversidad = 30;
     }
 
 
