@@ -121,6 +121,11 @@ public class paddle_script : MonoBehaviour
         if (collision.gameObject.CompareTag("RedBall"))
         {
             puntosEnergia++;
+
+            if (puntosEnergia >10)
+            {
+                puntosEnergia = 10;
+            }
         }
         if (collision.gameObject.CompareTag("Evento"))
         {
