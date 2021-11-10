@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 601281378}
   - component: {fileID: 601281377}
   m_Layer: 5
-  m_Name: EstudioText
+  m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,6 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2579126576738377893}
   - component: {fileID: 2579126576738377894}
+  - component: {fileID: 5993276612639002798}
   m_Layer: 5
   m_Name: Universidad
   m_TagString: Untagged
@@ -402,7 +403,7 @@ RectTransform:
   m_GameObject: {fileID: 2579126576738377892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.22999999, y: 0.23, z: 1}
   m_Children:
   - {fileID: 2579126575340487903}
   - {fileID: 2579126576351510668}
@@ -467,3 +468,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &5993276612639002798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579126576738377892}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15aee9af6f16e6443bb26769a03e7e90, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

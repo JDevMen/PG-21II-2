@@ -10,14 +10,17 @@ public class paddle_script : MonoBehaviour
 
     public int numDormido;
 
+    //Puntos necesarios para empezar a ser castigado
+    public int puntosInicioCastigo = 3;
+    public int puntosAntesDeCastigo;
 
     public Mensajes mensajeria;
 
     public SpawnGameObject generadorScript;
 
-    
+    //Script castigo
+    private castigoScript castigoScript;
 
-   
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
@@ -46,6 +49,12 @@ public class paddle_script : MonoBehaviour
         puntosEnergia = 10;
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
         generadorScript = Generador.GetComponent<SpawnGameObject>();
+        GameObject piso = GameObject.FindGameObjectWithTag("Piso");
+        castigoScript = piso.GetComponent<castigoScript>();
+        if(castigoScript == null)
+        {
+            Debug.Log("No hay script para manejar castigos");
+        }
 
     }
 
@@ -102,10 +111,12 @@ public class paddle_script : MonoBehaviour
         if (collision.gameObject.CompareTag("GreenBall"))
         {
             puntosUniversidad++;
+            castigoScript.resetUniversidadCastigo();
         }
         if (collision.gameObject.CompareTag("YellowBall"))
         {
             puntosFamilia++;
+            castigoScript.resetFamiliaCastigo();
         }
         if (collision.gameObject.CompareTag("RedBall"))
         {

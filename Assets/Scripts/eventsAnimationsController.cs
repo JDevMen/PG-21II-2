@@ -7,9 +7,17 @@ public class eventsAnimationsController : MonoBehaviour
 {
     public GameObject pelotaEventUI;
     public GameObject jugadorEventUI;
+    public GameObject barraUniversidadUI;
+    public GameObject barraFamiliaUI;
+
 
     private Animator pelotaAnimator;
     private Animator jugadorAnimator;
+    private Animator barraUniversidadAnimator;
+    private Animator barrafamiliaAnimator;
+
+    private float escalaInicialBarras;
+
 
     //Lista de sprites de todos los iconos,
     //iconos predeterminados en pos 0 y 1
@@ -20,6 +28,13 @@ public class eventsAnimationsController : MonoBehaviour
     {
         pelotaAnimator = pelotaEventUI.GetComponent<Animator>();
         jugadorAnimator = jugadorEventUI.GetComponent<Animator>();
+        barrafamiliaAnimator = barraFamiliaUI.GetComponent<Animator>();
+        barraUniversidadAnimator = barraUniversidadUI.GetComponent<Animator>();
+
+        escalaInicialBarras = barraUniversidadUI.GetComponent<RectTransform>()
+            .localScale.x;
+
+        Debug.Log("Escala inicial igual a " + escalaInicialBarras);
 
         loadIcons();
 
@@ -44,6 +59,17 @@ public class eventsAnimationsController : MonoBehaviour
             changePlayerEventSprite("playerEvent1");
         }
 
+        if (Input.GetKey(KeyCode.F4))
+        {
+            activateUniversidadWarningAnimation();
+        }
+        if(Input.GetKey(KeyCode.F5))
+        {
+            deactivateUniversidadWarningAnimation();
+        }
+
+
+
 
     }
 
@@ -60,6 +86,70 @@ public class eventsAnimationsController : MonoBehaviour
         yield return new WaitForSeconds(pDuracion);
         jugadorAnimator.Play("Default");
     }
+
+
+    //Animaciones de warning de barras universidad y familia
+
+    public void activateUniversidadWarningAnimation()
+    {
+        Debug.Log("Entró a universidadAnimation");
+        barraUniversidadAnimator.Play("warningAnimation");
+    }
+
+    public void deactivateUniversidadWarningAnimation()
+    {
+        barraUniversidadAnimator.Play("Default");
+        barraUniversidadUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+    public void activateFamiliaWarningAnimation()
+    {
+        Debug.Log("Entró a familiaAnimation");
+        barrafamiliaAnimator.Play("warningAnimation");
+    }
+
+    public void deactivatefamiliaWarningAnimation()
+    {
+        barrafamiliaAnimator.Play("Default");
+        barraFamiliaUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+
+    //Animaciones de danger de barras universidad y familia
+
+    public void activateUniversidadDangerAnimation()
+    {
+        Debug.Log("Entró a universidadAnimation");
+        barraUniversidadAnimator.Play("dangerAnimation");
+    }
+
+    public void deactivateUniversidadDangerAnimation()
+    {
+        barraUniversidadAnimator.Play("Default");
+        barraUniversidadUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+    public void activateFamiliaDangerAnimation()
+    {
+        Debug.Log("Entró a familiaAnimation");
+        barrafamiliaAnimator.Play("dangerAnimation");
+    }
+
+    public void deactivatefamiliaDangerAnimation()
+    {
+        barrafamiliaAnimator.Play("Default");
+        barraFamiliaUI.GetComponent<RectTransform>().localScale =
+            new Vector3(escalaInicialBarras, escalaInicialBarras, 1);
+    }
+
+
+
+
+
+
 
     void loadIcons()
     {
