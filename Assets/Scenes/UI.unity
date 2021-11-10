@@ -3267,6 +3267,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1825195850}
     m_Modifications:
+    - target: {fileID: 3220659023442343300, guid: d59af3ac28fcf4659a909211f7356283, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3220659023442343301, guid: d59af3ac28fcf4659a909211f7356283, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3963,6 +3967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Familia
       objectReference: {fileID: 0}
+    - target: {fileID: 3786546383907362591, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3786546384555974211, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4095,6 +4103,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579126576738377893, guid: 7254a44b78e59404a8c2e2f2d61e6b3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2579126576738377894, guid: 7254a44b78e59404a8c2e2f2d61e6b3a, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4241,6 +4253,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777833533445060958, guid: 9c3b768d9f4aa8645abbdc31e4f565ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777833533445060959, guid: 9c3b768d9f4aa8645abbdc31e4f565ff, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4777833533709073998, guid: 9c3b768d9f4aa8645abbdc31e4f565ff, type: 3}
