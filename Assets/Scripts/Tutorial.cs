@@ -35,20 +35,20 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         
-        //panelOscuro = GameObject.FindGameObjectWithTag("pOscuro");
+        panelOscuro = GameObject.FindGameObjectWithTag("pOscuro");
 
-        //if(panelOscuro != null)
-        //{
-        //    if (panelOscuro.activeSelf == true)
-        //    {
-        //        Time.timeScale = 0f;
-        //        mensajeria = UICanvas.GetComponent<MensajeTutorial>();
-        //        mensaje.SetActive(true);
-        //        botonPausa.SetActive(false);
-        //        panelJugador.SetActive(true);
-        //        mensajeria.lanzarMensaje("Este es el jugador");
-        //    }
-        //}
+        if(panelOscuro != null)
+        {
+            if (panelOscuro.activeSelf == true)
+            {
+                Time.timeScale = 0f;
+                mensajeria = UICanvas.GetComponent<MensajeTutorial>();
+                mensaje.SetActive(true);
+                botonPausa.SetActive(false);
+                panelJugador.SetActive(true);
+                mensajeria.lanzarMensaje("Este es el jugador");
+            }
+        }
         
 
     }
