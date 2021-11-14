@@ -45,6 +45,8 @@ public class SpawnGameObject : MonoBehaviour
         secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
 
         setPorcentajesIniciales();
+        StartCoroutine(shoot());
+
     }
 
     IEnumerator waitForUICoroutine()
@@ -64,6 +66,7 @@ public class SpawnGameObject : MonoBehaviour
         GameObject canvas = GameObject.FindGameObjectWithTag("UIcanvas");
 
         eventsAnimationController = canvas.GetComponent<eventsAnimationsController>();
+
     }
 
     // Update is called once per frame
@@ -72,19 +75,6 @@ public class SpawnGameObject : MonoBehaviour
         Vector2 reticlePos = reticle.transform.position;
 
         direction = reticlePos - (Vector2)transform.position;
-
-        
-
-        if (Time.time - savedTime >= secondsBetweenSpawning) // is it time to spawn again?
-        {
-            
-            //Instanciaci�n del prefab para generar una nueva pelota
-            shootObject();
-            savedTime = Time.time; // store for next spawn
-            secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
-
-            
-        }
 
         
     }
@@ -128,6 +118,18 @@ public class SpawnGameObject : MonoBehaviour
             return 3;
         }
         
+    }
+
+    IEnumerator shoot()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(secondsBetweenSpawning);
+            shootObject();
+            Debug.Log("Shot ===============");
+        }
+
+
     }
 
     public void modificarPorcentajes(int pEvento, int pFamilia, int pEnergia, int pUniversidad)
