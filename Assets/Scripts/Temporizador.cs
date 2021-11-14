@@ -3,29 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Temporizador : MonoBehaviour
 {
-    public int tiempo = 50;
+    private int tiempo = 60;
     public Text tiempoDisplay;
     public Slider tiempoDisplay2;
     public GameObject menuPausa;
+    public int tiempoParaCalcular;
+
 
     private void Start()
     {
         Contador();
         tiempoDisplay2.maxValue = tiempo;
+        tiempoParaCalcular = tiempo;
     }
 
     private void Update()
     {
         tiempoDisplay2.value = tiempo;
 
-        //if(tiempo == 0)
-        //{
-        //    SceneManager.LoadScene("Menu");
-        //}
     }
 
     public int getTiempo()
