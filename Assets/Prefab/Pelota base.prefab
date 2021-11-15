@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8265138184739307540}
   - component: {fileID: 8970881581268061566}
   - component: {fileID: 8604211214707302837}
+  - component: {fileID: 4021664190435085301}
   - component: {fileID: 7842668666960654939}
-  - component: {fileID: 4905703884027851841}
   m_Layer: 0
   m_Name: Pelota base
   m_TagString: Evento
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1910321114343366458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.25, y: -0.77, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20d6c63519bea834592d3a4f1bf549ba, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 8d14980257e938f49a4bba014db192f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,6 +106,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &4021664190435085301
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910321114343366458}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &7842668666960654939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,19 +143,3 @@ MonoBehaviour:
   minVelocidad: 3
   maxVelocidad: 50
   direccion: {x: 0, y: 0}
---- !u!58 &4905703884027851841
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910321114343366458}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.28

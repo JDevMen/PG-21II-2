@@ -8,10 +8,6 @@ public class EvaluacionPuntaje : MonoBehaviour
     private Temporizador temp;
     private int tiempo;
     public static int escenarioCargar;
-    public static float puntosEnergiaFinal;
-    public static float puntosUniversidadFinal;
-    public static float puntosFamiliaFinal;
-    public static int contadorDormido;
 
     private paddle_script jugadorScript;
 
@@ -19,7 +15,6 @@ public class EvaluacionPuntaje : MonoBehaviour
     private float puntosEnergia;
     private float puntosUniversidad;
     private float puntosFamilia;
-    private int contDormido;
 
     // Start is called before the first frame update
     void Start()
@@ -46,15 +41,9 @@ public class EvaluacionPuntaje : MonoBehaviour
             puntosEnergia = jugadorScript.getPuntosEnergia();
             puntosUniversidad = jugadorScript.getPuntosUniversidad();
             puntosFamilia = jugadorScript.getPuntosFamilia();
-            contDormido = jugadorScript.numDormido;
 
             if (tiempo == 0)
             {
-                puntosEnergiaFinal = puntosEnergia;
-                puntosFamiliaFinal = puntosFamilia;
-                puntosUniversidadFinal = puntosUniversidad;
-                contadorDormido = contDormido;
-
 
                 if (puntosEnergia <=3)
                 {

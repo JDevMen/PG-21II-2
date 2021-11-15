@@ -8,19 +8,14 @@ public class paddle_script : MonoBehaviour
 
     private float input;
 
-    public int numDormido;
-
-    //Puntos necesarios para empezar a ser castigado
-    public int puntosInicioCastigo = 3;
-    public int puntosAntesDeCastigo;
 
     public Mensajes mensajeria;
 
     public SpawnGameObject generadorScript;
 
-    //Script castigo
-    private castigoScript castigoScript;
+    
 
+   
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
@@ -49,12 +44,6 @@ public class paddle_script : MonoBehaviour
         puntosEnergia = 10;
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
         generadorScript = Generador.GetComponent<SpawnGameObject>();
-        GameObject piso = GameObject.FindGameObjectWithTag("Piso");
-        castigoScript = piso.GetComponent<castigoScript>();
-        if(castigoScript == null)
-        {
-            Debug.Log("No hay script para manejar castigos");
-        }
 
     }
 
@@ -111,21 +100,14 @@ public class paddle_script : MonoBehaviour
         if (collision.gameObject.CompareTag("GreenBall"))
         {
             puntosUniversidad++;
-            castigoScript.resetUniversidadCastigo();
         }
         if (collision.gameObject.CompareTag("YellowBall"))
         {
             puntosFamilia++;
-            castigoScript.resetFamiliaCastigo();
         }
         if (collision.gameObject.CompareTag("RedBall"))
         {
             puntosEnergia++;
-
-            if (puntosEnergia >10)
-            {
-                puntosEnergia = 10;
-            }
         }
         if (collision.gameObject.CompareTag("Evento"))
         {
@@ -183,8 +165,6 @@ public class paddle_script : MonoBehaviour
     {
         mensajeria.lanzarMensaje("Te has quedado dormido");
 
-        numDormido++;
-
         speed = speed * 0;
         eventoActivo = true;
         yield return new WaitForSeconds(2.5f);
@@ -213,7 +193,7 @@ public class paddle_script : MonoBehaviour
         mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dïficil cumplir tus tareas");
     
         yield return new WaitForSeconds(7);
-        transform.localScale = new Vector3(2, 2f, 1);
+        transform.localScale = new Vector3(2, 0.5f, 1);
 
         eventoActivo = false;
         Debug.Log("Debuff terminado");
@@ -221,12 +201,12 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator scaleBuff()
     {
-        transform.localScale = new Vector3(3.5f, 2f, 1);
+        transform.localScale = new Vector3(3.5f, 0.5f, 1);
         eventoActivo = true;
         mensajeria.lanzarMensaje("La comida de hoy te dio mucho gusto te sera mas facil cumplir tus tareas");
 
         yield return new WaitForSeconds(7);
-        transform.localScale = new Vector3(2, 2f, 1);
+        transform.localScale = new Vector3(2, 0.5f, 1);
 
         eventoActivo = false;
         Debug.Log("Buff terminado");
