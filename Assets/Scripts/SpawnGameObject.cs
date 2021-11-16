@@ -94,8 +94,8 @@ public class SpawnGameObject : MonoBehaviour
         GameObject pelotaCopy = Instantiate(pelotaact, reticle.transform.position, Quaternion.identity);
         pelotaCopy.GetComponent<pelota_script>().speed = velocidadPelota;
         pelotaCopy.GetComponent<pelota_script>().tamano = tamanoPelota;
-        pelotaCopy.GetComponent<pelota_script>().bounce_min = bounce_min;
-        pelotaCopy.GetComponent<pelota_script>().bounce_max = bounce_max;
+        pelotaCopy.GetComponent<pelota_script>().bounce_min = pRebotesJugador;
+        pelotaCopy.GetComponent<pelota_script>().bounce_max = pRebotesJugador;
         pelotaCopy.GetComponent<pelota_script>().player_bounces = pRebotesJugador;
         pelotaCopy.GetComponent<pelota_script>().direccion = direction;
     }
@@ -132,23 +132,27 @@ public class SpawnGameObject : MonoBehaviour
 
         while (true)
         {
-
             yield return new WaitForSeconds(secondsBetweenSpawning);
             int tipoPelota = randomParametro(porcentajeEvento, porcentajeFamilia, porcentajeEnergia, porcentajeUniversidad);
             if (pelotasLanzadasSinRebote < pelotasSinRebote)
             {
+                Debug.Log("Entró a pelotas sin rebote if");
+
                 shootObject(0, tipoPelota);
                 pelotasLanzadasSinRebote++;
             }
             else if (pelotasLanzadasRebote < pelotasRebote)
             {
+                Debug.Log("Entró a pelotas con rebote if");
                 if (tipoPelota != 0)
                 {
+                    Debug.Log("Entró a pelotas blancas");
                     shootObject(player_bounces, tipoPelota);
                     pelotasLanzadasRebote++;
                 }
                 else
                 {
+                    Debug.Log("Entró a pelotas no blancas ");
                     shootObject(0, tipoPelota);
                 }
 
@@ -197,7 +201,7 @@ public class SpawnGameObject : MonoBehaviour
         yield return new WaitForSeconds(2);
         tamanoPelota = tamanoPelota * 2;
         eventoActivo = false;
-        Debug.Log("Debuff terminado");
+        //Debug.Log("Debuff terminado");
     }
 
     public IEnumerator DebuffVelocidadPelota()
@@ -212,7 +216,7 @@ public class SpawnGameObject : MonoBehaviour
         yield return new WaitForSeconds(2);
         velocidadPelota = velocidadPelota / 2;
         eventoActivo = false;
-        Debug.Log("Debuff terminado");
+        //Debug.Log("Debuff terminado");
     }
 
     public IEnumerator BuffVelocidadPelota()
@@ -227,7 +231,7 @@ public class SpawnGameObject : MonoBehaviour
         yield return new WaitForSeconds(2);
         velocidadPelota = velocidadPelota * 2;
         eventoActivo = false;
-        Debug.Log("Debuff terminado");
+        //Debug.Log("Debuff terminado");
     }
 
     public IEnumerator DebuffSpawnTime()
@@ -245,7 +249,7 @@ public class SpawnGameObject : MonoBehaviour
         minSecondsBetweenSpawning = 0.5f;
         maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;
-        Debug.Log("Debuff terminado");
+        //Debug.Log("Debuff terminado");
     }
 
     public IEnumerator BuffSpawnTime()
@@ -263,7 +267,7 @@ public class SpawnGameObject : MonoBehaviour
         minSecondsBetweenSpawning = 0.5f;
         maxSecondsBetweenSpawning = 1.0f;
         eventoActivo = false;
-        Debug.Log("Debuff terminado");
+        //Debug.Log("Debuff terminado");
     }
 
 

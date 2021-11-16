@@ -10,14 +10,14 @@ public class castigoScript : MonoBehaviour
     private paddle_script jugadorScript;
     private int puntosParaCastigo;
     private int puntosAntesCastigo;
-    public int puntosCastigo=1;
+    public int puntosCastigo = 1;
 
     private eventsAnimationsController animationController;
 
     private bool warningFamilia = false;
     private bool warningUniversidad = false;
     private bool dangerFamilia = false;
-    private bool dangerUniversidad= false;
+    private bool dangerUniversidad = false;
 
     private void Start()
     {
@@ -25,9 +25,9 @@ public class castigoScript : MonoBehaviour
         jugadorScript = jugador.GetComponent<paddle_script>();
         puntosParaCastigo = jugadorScript.puntosInicioCastigo;
         puntosAntesCastigo = jugadorScript.puntosAntesDeCastigo;
-        Debug.Log("puntos para castigo " + puntosParaCastigo);
+        //Debug.Log("puntos para castigo " + puntosParaCastigo);
         StartCoroutine(waitForUIcourutine());
-       
+
     }
 
     IEnumerator waitForUIcourutine()
@@ -52,15 +52,15 @@ public class castigoScript : MonoBehaviour
 
         debugMessage += "Numero de pelotasUniversidad caidas: " + puntosUniversidad + "\n";
 
-        Debug.Log(debugMessage);
+        //Debug.Log(debugMessage);
 
-        if(puntosFamilia>= puntosAntesCastigo && puntosFamilia<puntosParaCastigo && !warningFamilia && pelotaColisionada.CompareTag("YellowBall"))
+        if (puntosFamilia >= puntosAntesCastigo && puntosFamilia < puntosParaCastigo && !warningFamilia && pelotaColisionada.CompareTag("YellowBall"))
         {
             warningFamilia = true;
             animationController.activateFamiliaWarningAnimation();
 
         }
-        if(puntosUniversidad>= puntosAntesCastigo && puntosUniversidad<puntosParaCastigo && !warningUniversidad && pelotaColisionada.CompareTag("GreenBall"))
+        if (puntosUniversidad >= puntosAntesCastigo && puntosUniversidad < puntosParaCastigo && !warningUniversidad && pelotaColisionada.CompareTag("GreenBall"))
         {
             warningUniversidad = true;
             animationController.activateUniversidadWarningAnimation();
@@ -84,7 +84,7 @@ public class castigoScript : MonoBehaviour
         }
         if (puntosUniversidad >= puntosParaCastigo && pelotaColisionada.CompareTag("GreenBall"))
         {
-            if(warningUniversidad)
+            if (warningUniversidad)
             {
                 warningUniversidad = false;
                 animationController.deactivateUniversidadWarningAnimation();
@@ -104,7 +104,8 @@ public class castigoScript : MonoBehaviour
         if (warningFamilia)
         {
             animationController.deactivatefamiliaWarningAnimation();
-        }else if (dangerFamilia)
+        }
+        else if (dangerFamilia)
         {
             animationController.deactivatefamiliaDangerAnimation();
         }
@@ -115,7 +116,8 @@ public class castigoScript : MonoBehaviour
         if (warningUniversidad)
         {
             animationController.deactivateUniversidadWarningAnimation();
-        }else if (dangerUniversidad)
+        }
+        else if (dangerUniversidad)
         {
             animationController.deactivateUniversidadDangerAnimation();
         }
@@ -123,15 +125,15 @@ public class castigoScript : MonoBehaviour
 
     public void castigarFamilia()
     {
-        if(jugadorScript.puntosFamilia>0)
-        jugadorScript.puntosFamilia -= puntosCastigo;
-        Debug.Log("Castigado en puntos de familia");
+        if (jugadorScript.puntosFamilia > 0)
+            jugadorScript.puntosFamilia -= puntosCastigo;
+        //Debug.Log("Castigado en puntos de familia");
     }
     public void castigarUniversidad()
     {
-        if(jugadorScript.puntosUniversidad>0)
-        jugadorScript.puntosUniversidad -= puntosCastigo;
-        Debug.Log("Castigado en puntos de universidad");
+        if (jugadorScript.puntosUniversidad > 0)
+            jugadorScript.puntosUniversidad -= puntosCastigo;
+        //Debug.Log("Castigado en puntos de universidad");
     }
 
 
