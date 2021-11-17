@@ -34,11 +34,11 @@ public class eventsAnimationsController : MonoBehaviour
         escalaInicialBarras = barraUniversidadUI.GetComponent<RectTransform>()
             .localScale.x;
 
-        Debug.Log("Escala inicial igual a " + escalaInicialBarras);
+        //Debug.Log("Escala inicial igual a " + escalaInicialBarras);
 
         loadIcons();
 
-        Debug.Log(icons[0]);
+        //Debug.Log(icons[0]);
 
     }
 
@@ -81,7 +81,7 @@ public class eventsAnimationsController : MonoBehaviour
     }
     public IEnumerator jugadorAnimationCoroutine(float pDuracion)
     {
-        Debug.Log("Entró jugadorAnimationCoroutine");
+        //Debug.Log("Entró jugadorAnimationCoroutine");
         jugadorAnimator.Play("lookAtMe");
         yield return new WaitForSeconds(pDuracion);
         jugadorAnimator.Play("Default");
@@ -92,7 +92,7 @@ public class eventsAnimationsController : MonoBehaviour
 
     public void activateUniversidadWarningAnimation()
     {
-        Debug.Log("Entró a universidadAnimation");
+        //Debug.Log("Entró a universidadAnimation");
         barraUniversidadAnimator.Play("warningAnimation");
     }
 
@@ -105,7 +105,7 @@ public class eventsAnimationsController : MonoBehaviour
 
     public void activateFamiliaWarningAnimation()
     {
-        Debug.Log("Entró a familiaAnimation");
+        //Debug.Log("Entró a familiaAnimation");
         barrafamiliaAnimator.Play("warningAnimation");
     }
 
@@ -121,7 +121,7 @@ public class eventsAnimationsController : MonoBehaviour
 
     public void activateUniversidadDangerAnimation()
     {
-        Debug.Log("Entró a universidadAnimation");
+        //Debug.Log("Entró a universidadAnimation");
         barraUniversidadAnimator.Play("dangerAnimation");
     }
 
@@ -134,7 +134,7 @@ public class eventsAnimationsController : MonoBehaviour
 
     public void activateFamiliaDangerAnimation()
     {
-        Debug.Log("Entró a familiaAnimation");
+        //Debug.Log("Entró a familiaAnimation");
         barrafamiliaAnimator.Play("dangerAnimation");
     }
 

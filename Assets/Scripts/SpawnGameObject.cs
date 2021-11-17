@@ -23,7 +23,7 @@ public class SpawnGameObject : MonoBehaviour
     public float tamanoPelota = 1.0f;
     public int bounce_min = 1;
     public int bounce_max = 6;
-    public int player_bounces = 1;
+    public int player_bounces = 3;
 
     private float savedTime;
     private float secondsBetweenSpawning;
@@ -138,7 +138,7 @@ public class SpawnGameObject : MonoBehaviour
             {
                 Debug.Log("Entró a pelotas sin rebote if");
 
-                shootObject(0, tipoPelota);
+                shootObject(1, tipoPelota);
                 pelotasLanzadasSinRebote++;
             }
             else if (pelotasLanzadasRebote < pelotasRebote)
@@ -153,7 +153,7 @@ public class SpawnGameObject : MonoBehaviour
                 else
                 {
                     Debug.Log("Entró a pelotas no blancas ");
-                    shootObject(0, tipoPelota);
+                    shootObject(1, tipoPelota);
                 }
 
             }
@@ -167,7 +167,8 @@ public class SpawnGameObject : MonoBehaviour
 
             secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
 
-            Debug.Log("Shot ===============");
+            Debug.Log("Pelotas con rebote lanzadas: "+pelotasLanzadasRebote +"\n"+
+                "pelotas sin rebote lanzadas: "+pelotasLanzadasSinRebote);
         }
 
 
