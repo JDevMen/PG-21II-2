@@ -37,8 +37,8 @@ public class SpawnGameObject : MonoBehaviour
 
 
     //Pelotas que rebotan por número de pelotas que no rebotan
-    private int pelotasRebote = 0;
-    private int pelotasSinRebote = 1;
+    private int pelotasRebote =1;
+    private int pelotasSinRebote = 2;
 
     // Use this for initialization
     void Start()
@@ -139,20 +139,25 @@ public class SpawnGameObject : MonoBehaviour
                 Debug.Log("Entró a pelotas sin rebote if");
 
                 shootObject(1, tipoPelota);
+
+                if(tipoPelota == 1 || tipoPelota == 3)
+                {
+
                 pelotasLanzadasSinRebote++;
+                }
             }
             else if (pelotasLanzadasRebote < pelotasRebote)
             {
                 Debug.Log("Entró a pelotas con rebote if");
-                if (tipoPelota != 0)
+                if (tipoPelota != 0 || tipoPelota !=2)
                 {
-                    Debug.Log("Entró a pelotas blancas");
+                    Debug.Log("Entró a no pelotas blancas");
                     shootObject(player_bounces, tipoPelota);
                     pelotasLanzadasRebote++;
                 }
                 else
                 {
-                    Debug.Log("Entró a pelotas no blancas ");
+                    Debug.Log("Entró a pelotas blancas o energía");
                     shootObject(1, tipoPelota);
                 }
 
