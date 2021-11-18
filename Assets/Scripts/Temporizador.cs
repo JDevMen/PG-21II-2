@@ -6,46 +6,57 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
-    private int tiempo = 60;
     public Text tiempoDisplay;
     public Slider tiempoDisplay2;
     public GameObject menuPausa;
-    public int tiempoParaCalcular;
+    public float tiempoPartida = 60;
+    public float tiempoParaCalcular;
+    private float tiempoMaxPartida;
+
+    private int numeroSemana = 0;
 
 
     private void Start()
     {
+        tiempoMaxPartida = tiempoPartida;
+        tiempoParaCalcular = tiempoPartida;
+        float tiempoPorSemanas = tiempoMaxPartida / 16;
+        tiempoPartida = 0;
         Contador();
-        tiempoDisplay2.maxValue = tiempo;
-        tiempoParaCalcular = tiempo;
+        StartCoroutine(ContadorSemanas(tiempoPorSemanas));
+        tiempoDisplay2.maxValue = tiempoMaxPartida;
+
+        Debug.Log("Tiempo por semana " + tiempoPorSemanas);
     }
 
     private void Update()
     {
-        tiempoDisplay2.value = tiempo;
+        tiempoDisplay2.value = tiempoPartida;
 
     }
 
-    public int getTiempo()
+    public float getTiempo()
     {
-        return tiempo;
+        return tiempoPartida;
     }
+
+    IEnumerator ContadorSemanas(float pTiempoPorSemana) {
+
+        while (tiempoPartida < tiempoMaxPartida)
+        {
+            numeroSemana++;
+            tiempoDisplay.text = "Semana " + numeroSemana;
+
+             yield return new WaitForSeconds(pTiempoPorSemana);
+        }
+    }
+
 
     void Contador()
     {
-        if (tiempo > 0 && menuPausa.activeSelf == false)
+        if (tiempoPartida < tiempoMaxPartida && menuPausa.activeSelf == false)
         {
-            TimeSpan spanTime = TimeSpan.FromSeconds(tiempo);
-            if(spanTime.Seconds < 10)
-            {
-                tiempoDisplay.text = "0" + spanTime.Minutes + ":0" + spanTime.Seconds;
-            }
-            else
-            {
-                tiempoDisplay.text = "0" + spanTime.Minutes + ":" + spanTime.Seconds;
-            }
-            
-            tiempo--;
+            tiempoPartida++;
             
         }
         Invoke("Contador", 1.0f);

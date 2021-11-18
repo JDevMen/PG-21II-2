@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EvaluacionPuntaje : MonoBehaviour
 {
     private Temporizador temp;
-    private int tiempo;
+    private float tiempo;
     public static int escenarioCargar;
     public static float puntosEnergiaFinal;
     public static float puntosUniversidadFinal;

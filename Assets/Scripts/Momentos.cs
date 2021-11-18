@@ -7,7 +7,7 @@ public class Momentos : MonoBehaviour
 
     public SpawnGameObject lanzadorScript;
     private Temporizador temp;
-    private int tiempo;
+    private float tiempo;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class Momentos : MonoBehaviour
     }
 
 
-    IEnumerator lanzarMomento(int duracionSemana)
+    IEnumerator lanzarMomento(float duracionSemana)
     {
         GameObject generador = GameObject.FindGameObjectWithTag("Generador");
         lanzadorScript = generador.GetComponent<SpawnGameObject>();
@@ -49,9 +49,9 @@ public class Momentos : MonoBehaviour
     }
 
 
-    public int getTiempoMomento(int nSemana)
+    public float getTiempoMomento(int nSemana)
     {
-        int tiempoMomento;
+        float tiempoMomento;
         float duracionSemana = getTiempoSemana();
         float semanaMomento = duracionSemana * 4;
 
@@ -59,7 +59,7 @@ public class Momentos : MonoBehaviour
         return tiempoMomento;
     }
 
-    public int getTiempoSemana()
+    public float getTiempoSemana()
     {
         return temp.tiempoParaCalcular / 16;
     }
