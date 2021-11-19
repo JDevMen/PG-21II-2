@@ -18,6 +18,12 @@ public class Mensajes : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+            cerrarMensaje();
+    }
+
     public void cerrarMensaje()
     {
         letrero.SetActive(false);

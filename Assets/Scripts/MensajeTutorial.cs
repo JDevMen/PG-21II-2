@@ -12,11 +12,10 @@ public class MensajeTutorial : MonoBehaviour
 
     public void lanzarMensaje(string mensaje)
     {
-
         textoLetrero.text = mensaje;
         letrero.SetActive(true);
         Time.timeScale = 0f;
-    }
+    } 
 
     public void cerrarMensaje()
     {

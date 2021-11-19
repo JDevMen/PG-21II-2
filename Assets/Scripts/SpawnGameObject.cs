@@ -149,7 +149,7 @@ public class SpawnGameObject : MonoBehaviour
             else if (pelotasLanzadasRebote < pelotasRebote)
             {
                 Debug.Log("Entró a pelotas con rebote if");
-                if (tipoPelota != 0 || tipoPelota !=2)
+                if (tipoPelota == 1 || tipoPelota ==3)
                 {
                     Debug.Log("Entró a no pelotas blancas");
                     shootObject(player_bounces, tipoPelota);
