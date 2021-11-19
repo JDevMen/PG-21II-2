@@ -40,12 +40,14 @@ public class Momentos : MonoBehaviour
         lanzadorScript = generador.GetComponent<SpawnGameObject>();
 
         lanzadorScript.modificarPorcentajes(1, 30, 30, 30);
+        lanzadorScript.modificarRebote(1,5);
 
         yield return new WaitForSeconds(duracionSemana*3);
 
         Debug.Log("Termina el momento");
 
         lanzadorScript.setPorcentajesIniciales();
+        lanzadorScript.setReboteInicial();
     }
 
 

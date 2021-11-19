@@ -163,7 +163,7 @@ public class SpawnGameObject : MonoBehaviour
 
             }
 
-            if (pelotasLanzadasRebote == pelotasRebote && pelotasLanzadasSinRebote == pelotasSinRebote)
+            if (pelotasLanzadasRebote >= pelotasRebote && pelotasLanzadasSinRebote >= pelotasSinRebote)
             {
                 pelotasLanzadasRebote = 0;
                 pelotasLanzadasSinRebote = 0;
@@ -177,6 +177,18 @@ public class SpawnGameObject : MonoBehaviour
         }
 
 
+    }
+
+    public void modificarRebote(int nPelotasSinRebote, int nPelotasRebote)
+    {
+        pelotasSinRebote = nPelotasSinRebote;
+        pelotasRebote = nPelotasRebote;
+    }
+
+    public void setReboteInicial()
+    {
+        pelotasSinRebote = 1;
+        pelotasRebote = 0;
     }
 
     public void modificarPorcentajes(int pEvento, int pFamilia, int pEnergia, int pUniversidad)
