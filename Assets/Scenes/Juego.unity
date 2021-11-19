@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: pelotasRebote
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: player_bounces
@@ -265,15 +265,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: pelotasSinRebote
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: maxSecondsBetweenSpawning
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3891081931664732463, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: minSecondsBetweenSpawning
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6340119463633797236, guid: a1297769eb9109f4eb1ef92ed38c3cc1, type: 3}
       propertyPath: m_RootOrder
