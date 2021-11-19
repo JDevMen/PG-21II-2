@@ -173,14 +173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9333334, g: 0.85098046, b: 0.08235294, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1cd4521552035ab4ebf6723c91a5dbb9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 972bfc158a96432419a7ca59b1ca933b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -561,14 +561,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.003921569, b: 0.003921569, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1cd4521552035ab4ebf6723c91a5dbb9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4f22fd621d673404793b2cc7a2ccc914, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1477,14 +1477,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21176472, g: 0.69803923, b: 0.14901961, a: 1}
+  m_Color: {r: 0.44407266, g: 0.764151, b: 0.44658723, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1cd4521552035ab4ebf6723c91a5dbb9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 3542f5b7d1edd9941825b740bca6ae24, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2838,6 +2838,7 @@ MonoBehaviour:
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 584922575}
   menuPausa: {fileID: 1839071620}
+  tiempoPartida: 30
   tiempoParaCalcular: 0
 --- !u!114 &1733644517
 MonoBehaviour:
@@ -3546,7 +3547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1cd4521552035ab4ebf6723c91a5dbb9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 135f5835e839e114baac4d1df5ac1a33, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3855,6 +3856,7 @@ MonoBehaviour:
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 0}
   menuPausa: {fileID: 1839071620}
+  tiempoPartida: 30
   tiempoParaCalcular: 0
 --- !u!114 &438542767704116796 stripped
 MonoBehaviour:
