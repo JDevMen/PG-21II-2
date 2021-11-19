@@ -27,7 +27,7 @@ public class controles : MonoBehaviour
         }else if (activeStage3)
         {
             stage3.SetActive(false);
-            SceneManager.LoadScene("Juego");   
+            SceneManager.LoadScene("Tutorial");   
         }
     }
 }

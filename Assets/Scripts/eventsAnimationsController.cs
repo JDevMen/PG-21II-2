@@ -45,28 +45,28 @@ public class eventsAnimationsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F1))
-        {
-            pelotaAnimator.Play("lookAtMe");
-        }
+        //if (Input.GetKey(KeyCode.F1))
+        //{
+        //    pelotaAnimator.Play("lookAtMe");
+        //}
 
-        if(Input.GetKey(KeyCode.F2))
-        {
-            changeBallEventSprite("ballEvent1");
-        }
-        if (Input.GetKey(KeyCode.F3))
-        {
-            changePlayerEventSprite("playerEvent1");
-        }
+        //if(Input.GetKey(KeyCode.F2))
+        //{
+        //    changeBallEventSprite("ballEvent1");
+        //}
+        //if (Input.GetKey(KeyCode.F3))
+        //{
+        //    changePlayerEventSprite("playerEvent1");
+        //}
 
-        if (Input.GetKey(KeyCode.F4))
-        {
-            activateUniversidadWarningAnimation();
-        }
-        if(Input.GetKey(KeyCode.F5))
-        {
-            deactivateUniversidadWarningAnimation();
-        }
+        //if (Input.GetKey(KeyCode.F4))
+        //{
+        //    activateUniversidadWarningAnimation();
+        //}
+        //if(Input.GetKey(KeyCode.F5))
+        //{
+        //    deactivateUniversidadWarningAnimation();
+        //}
 
 
 

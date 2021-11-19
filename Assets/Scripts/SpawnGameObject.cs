@@ -37,8 +37,8 @@ public class SpawnGameObject : MonoBehaviour
 
 
     //Pelotas que rebotan por número de pelotas que no rebotan
-    private int pelotasRebote =1;
-    private int pelotasSinRebote = 2;
+    public int pelotasRebote =1;
+    public int pelotasSinRebote = 2;
 
     // Use this for initialization
     void Start()
@@ -136,7 +136,7 @@ public class SpawnGameObject : MonoBehaviour
             int tipoPelota = randomParametro(porcentajeEvento, porcentajeFamilia, porcentajeEnergia, porcentajeUniversidad);
             if (pelotasLanzadasSinRebote < pelotasSinRebote)
             {
-                Debug.Log("Entró a pelotas sin rebote if");
+                Debug.Log("Entró a pelotas sin rebote if"); 
 
                 shootObject(1, tipoPelota);
 
@@ -163,7 +163,7 @@ public class SpawnGameObject : MonoBehaviour
 
             }
 
-            if (pelotasLanzadasRebote == pelotasRebote && pelotasLanzadasSinRebote == pelotasSinRebote)
+            if (pelotasLanzadasRebote >= pelotasRebote && pelotasLanzadasSinRebote >= pelotasSinRebote)
             {
                 pelotasLanzadasRebote = 0;
                 pelotasLanzadasSinRebote = 0;
@@ -177,6 +177,18 @@ public class SpawnGameObject : MonoBehaviour
         }
 
 
+    }
+
+    public void modificarRebote(int nPelotasSinRebote, int nPelotasRebote)
+    {
+        pelotasSinRebote = nPelotasSinRebote;
+        pelotasRebote = nPelotasRebote;
+    }
+
+    public void setReboteInicial()
+    {
+        pelotasSinRebote = 1;
+        pelotasRebote = 0;
     }
 
     public void modificarPorcentajes(int pEvento, int pFamilia, int pEnergia, int pUniversidad)

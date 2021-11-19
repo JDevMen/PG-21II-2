@@ -48,7 +48,7 @@ public class EvaluacionPuntaje : MonoBehaviour
             puntosFamilia = jugadorScript.getPuntosFamilia();
             contDormido = jugadorScript.numDormido;
 
-            if (tiempo == 0)
+            if (tiempo == temp.tiempoParaCalcular)
             {
                 puntosEnergiaFinal = puntosEnergia;
                 puntosFamiliaFinal = puntosFamilia;
