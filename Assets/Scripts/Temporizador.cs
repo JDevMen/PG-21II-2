@@ -9,7 +9,7 @@ public class Temporizador : MonoBehaviour
     public Text tiempoDisplay;
     public Slider tiempoDisplay2;
     public GameObject menuPausa;
-    public float tiempoPartida = 60;
+    public float tiempoPartida = 30;
     public float tiempoParaCalcular;
     private float tiempoMaxPartida;
 

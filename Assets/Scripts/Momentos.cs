@@ -26,7 +26,7 @@ public class Momentos : MonoBehaviour
 
         if (tiempo == getTiempoMomento(4))
         {
-            //Debug.Log("Comienza momento 1");
+            Debug.Log("Comienza momento 1");
             StartCoroutine(lanzarMomento(getTiempoSemana()));
         }
 
@@ -43,7 +43,7 @@ public class Momentos : MonoBehaviour
 
         yield return new WaitForSeconds(duracionSemana*3);
 
-        //Debug.Log("Termina el momento");
+        Debug.Log("Termina el momento");
 
         lanzadorScript.setPorcentajesIniciales();
     }
@@ -53,9 +53,9 @@ public class Momentos : MonoBehaviour
     {
         float tiempoMomento;
         float duracionSemana = getTiempoSemana();
-        float semanaMomento = duracionSemana * 4;
+        float semanaMomento = duracionSemana * nSemana;
 
-        tiempoMomento = temp.tiempoParaCalcular - Mathf.FloorToInt(semanaMomento);
+        tiempoMomento = Mathf.FloorToInt(semanaMomento);
         return tiempoMomento;
     }
 
