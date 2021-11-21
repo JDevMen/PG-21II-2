@@ -10,12 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Intro");
     }
 
-
-    public void Salir ()
+    public void Tutorial ()
     {
-        Debug.Log("Salir");
-        Application.Quit();
-
+        SceneManager.LoadScene("Controles");
     }
+
+
 
 }
