@@ -226,13 +226,13 @@ public class SpawnGameObject : MonoBehaviour
     {
         mensajeria.lanzarMensaje("Vamos a coger las cosas con calma");
 
-        velocidadPelota = velocidadPelota * 2;
+        velocidadPelota = velocidadPelota / 2;
 
         eventoActivo = true;
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
-        velocidadPelota = velocidadPelota / 2;
+        velocidadPelota = velocidadPelota * 2;
         eventoActivo = false;
         //Debug.Log("Debuff terminado");
     }
@@ -241,13 +241,13 @@ public class SpawnGameObject : MonoBehaviour
     {
         mensajeria.lanzarMensaje("Tu concentración está por las nubes");
 
-        velocidadPelota = velocidadPelota / 2;
+        velocidadPelota = velocidadPelota * 2;
 
         eventoActivo = true;
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
-        velocidadPelota = velocidadPelota * 2;
+        velocidadPelota = velocidadPelota / 2;
         eventoActivo = false;
         //Debug.Log("Debuff terminado");
     }
