@@ -2838,7 +2838,6 @@ MonoBehaviour:
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 584922575}
   menuPausa: {fileID: 1839071620}
-  tiempoPartida: 30
   tiempoParaCalcular: 0
 --- !u!114 &1733644517
 MonoBehaviour:
@@ -3856,7 +3855,6 @@ MonoBehaviour:
   tiempoDisplay: {fileID: 2146767828}
   tiempoDisplay2: {fileID: 0}
   menuPausa: {fileID: 1839071620}
-  tiempoPartida: 30
   tiempoParaCalcular: 0
 --- !u!114 &438542767704116796 stripped
 MonoBehaviour:
@@ -3881,6 +3879,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 297720016}
     m_Modifications:
+    - target: {fileID: 397698438, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 195
+      objectReference: {fileID: 0}
+    - target: {fileID: 397698439, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
+      propertyPath: m_Text
+      value: Vida personal
+      objectReference: {fileID: 0}
     - target: {fileID: 3786546383907362588, guid: ff808ed28796a5343a187d404ba29c4f, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -4019,6 +4025,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2579126575058813116, guid: 7254a44b78e59404a8c2e2f2d61e6b3a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f8d6c803befb44bc89c118436018629, type: 3}
+    - target: {fileID: 2579126575340487896, guid: 7254a44b78e59404a8c2e2f2d61e6b3a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 47c23340812b24864af395feca4c3a9d, type: 3}
     - target: {fileID: 2579126576738377892, guid: 7254a44b78e59404a8c2e2f2d61e6b3a, type: 3}
       propertyPath: m_Name
       value: Universidad
