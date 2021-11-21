@@ -179,16 +179,16 @@ public class paddle_script : MonoBehaviour
 
                     case 2:
                         StartCoroutine(debuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent2");
+                        eventsAnimationController.changePlayerEventSprite("playerEvent4");
                         break;
 
                     case 3:
                         StartCoroutine(scaleDebuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent3");
+                        eventsAnimationController.changePlayerEventSprite("playerEvent2");
                         break;
                     case 4:
                         StartCoroutine(scaleBuff());
-                        eventsAnimationController.changePlayerEventSprite("playerEvent4");
+                        eventsAnimationController.changePlayerEventSprite("playerEvent3");
                         break;
                     case 5:
                         StartCoroutine(debuffInput());
@@ -234,10 +234,8 @@ public class paddle_script : MonoBehaviour
         numDormido++;
 
         speed = speed * 0;
-        eventoActivo = true;
         yield return new WaitForSeconds(2.5f);
         speed = 5;
-        eventoActivo = false;
         Debug.Log("Buff terminado");
     }
 
@@ -316,14 +314,6 @@ public class paddle_script : MonoBehaviour
 
         Debug.Log("Debuff terminado");
     }
-
-        
-
-    //private void FixedUpdate()
-    //{
-    //    GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
-
-    //}
 
 
     public float getPuntosEnergia()
