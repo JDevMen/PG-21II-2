@@ -111,7 +111,7 @@ public class Tutorial : MonoBehaviour
 
 
             Time.timeScale = 1f;
-            SceneManager.LoadScene("Juego");
+            SceneManager.LoadScene("Menu");
         }
             
 
