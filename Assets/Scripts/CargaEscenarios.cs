@@ -25,7 +25,7 @@ public class CargaEscenarios : MonoBehaviour
 
     string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal y salud se vieron seriamente afectados.";
     string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio y tu salud se vio seriamente afectados por no descansar.";
-    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno aún si lograste equilibrar la universdidad y tu vida personal.";
+    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno aún si lograste equilibrar la universidad y tu vida personal.";
     string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida! Es todo un hito!";
 
 

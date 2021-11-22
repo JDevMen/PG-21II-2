@@ -77,33 +77,11 @@ public class Tutorial : MonoBehaviour
         {
             panelBarras.SetActive(false);
             panelTiempo.SetActive(true);
-            mensajeria.lanzarMensaje("Esta barra representa el avance del semestre");
+            mensajeria.lanzarMensaje("Esta barra representa el avance del semestre. La duración de este es de 16 semanas.");
+
+            textoBoton.text = "Volver al menú";
         }
         else if (panelTiempo.activeSelf == true)
-        {
-            panelTiempo.SetActive(false);
-            panelPelotas.SetActive(true);
-            pelotaRoja.SetActive(true);
-            pelotaAmarilla.SetActive(true);
-            pelotaVerde.SetActive(true);
-            mensajeria.lanzarMensaje("Roja: Estudios \n Verde: Energía \n Amarilla: Felicidad");
-        }
-        else if(panelPelotas.activeSelf == true)
-        {
-            panelPelotas.SetActive(false);
-            pelotaRoja.SetActive(false);
-            pelotaAmarilla.SetActive(false);
-            pelotaVerde.SetActive(false);
-            panelEvento.SetActive(true);
-            pelotaEvento.SetActive(true);
-
-
-            textoBoton.text = "Jugar";
-
-            mensajeria.lanzarMensaje("Si recoges una de estas puede activarse un evento aleatorio de la misma naturaleza.");
-
-        }
-        else if(panelEvento.activeSelf == true)
         {
             panelEvento.SetActive(false);
             pelotaEvento.SetActive(false);
