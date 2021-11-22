@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class pelota_script : MonoBehaviour
@@ -29,38 +28,61 @@ public class pelota_script : MonoBehaviour
     //Dirección en la que va la bola al crearse
     public Vector2 direccion;
 
+    //Referencia a sprites de la pelota
+    private Sprite [] sprites;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        loadIcons();
+
         gameObject.transform.localScale = new Vector3(tamano, tamano, tamano);
         GetComponent<Rigidbody2D>().velocity = direccion * speed;
         material = GetComponent<CircleCollider2D>().sharedMaterial;
+
+        if (this.player_bounces > 1 && this.sprites.Length >0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+        }
+
     }
 
-    // Update is called once per frame
-    //Se mantiene para motivios de testing y debugging
-    void Update()
+    void loadIcons()
     {
-        //Solo para pruebas
+        string tipo = "";
 
-        ////Cambio de velocidad
-        //if (Input.GetKeyDown(KeyCode.F2)) aumentarVelocidad(factorCambioVelocidad);
-        //if (Input.GetKeyDown(KeyCode.F3)) disminuirVelocidad(factorCambioVelocidad);
+        string tag = gameObject.tag;
+
+        switch (tag)
+        {
+            case "YellowBall":
+                tipo = "ocio";
+                break;
+            case "GreenBall":
+                tipo = "estudio";
+                break;
+
+            default:
+                break;
+        }
 
 
-        ////Cambio de tamaño
-        //if (Input.GetKeyDown(KeyCode.F4)) cambiarTamano(5f);
-        //if (Input.GetKeyDown(KeyCode.F5)) cambiarTamano(1f);
-        //if (Input.GetKeyDown(KeyCode.F6)) cambiarTamano(0.5f);
+        Sprite[] loadedIcons = Resources.LoadAll<Sprite>("Pelotas");
 
-        ////Cambio de rebote
-        //if (Input.GetKeyDown(KeyCode.F7)) cambiarRebote(1.5f);
-        //if (Input.GetKeyDown(KeyCode.F8)) cambiarRebote(0.5f);
-        //if (Input.GetKeyDown(KeyCode.F9)) cambiarRebote(1f);
+        if (tipo.Equals("ocio"))
+        {
+            sprites = Array.FindAll<Sprite>(loadedIcons, i => i.name.Contains("ocio"));
+        }else if (tipo.Equals("estudio"))
+        {
+            sprites = Array.FindAll<Sprite>(loadedIcons, i => i.name.Contains("estudio"));
+        }
 
+
+        
 
     }
-
     void FixedUpdate()
     {
         Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
@@ -73,16 +95,18 @@ public class pelota_script : MonoBehaviour
             rigidBody.velocity = rigidBody.velocity.normalized * minVelocidad;
 
         speed = rigidBody.velocity.magnitude;
+
+        
     }
     
     //Funci�n inicial de prueba
     void Respawn()
     {
 
-        player_bounces = (int) Random.Range(bounce_min, bounce_max);
+        player_bounces = (int)UnityEngine.Random.Range(bounce_min, bounce_max);
         transform.position = Vector3.zero;
 
-        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
+        GetComponent<Rigidbody2D>().velocity = UnityEngine.Random.insideUnitCircle.normalized * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -90,6 +114,12 @@ public class pelota_script : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player_bounces--;
+
+            if (player_bounces == 1 && sprites.Length>0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            }
+
         }
 
         if(player_bounces== 0 || collision.gameObject.CompareTag("Piso"))
