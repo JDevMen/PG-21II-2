@@ -13,6 +13,10 @@ TagManager:
   - YellowBall
   - Evento
   - Generador
+  - Ball
+  - Paddle
+  - pOscuro
+  - Audio
   layers:
   - Default
   - TransparentFX
