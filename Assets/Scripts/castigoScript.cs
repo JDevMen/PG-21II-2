@@ -12,15 +12,18 @@ public class castigoScript : MonoBehaviour
     private int puntosAntesCastigo;
     public int puntosCastigo = 1;
 
+
     private eventsAnimationsController animationController;
 
     private bool warningFamilia = false;
     private bool warningUniversidad = false;
     private bool dangerFamilia = false;
     private bool dangerUniversidad = false;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         GameObject jugador = GameObject.FindGameObjectWithTag("Player");
         jugadorScript = jugador.GetComponent<paddle_script>();
         puntosParaCastigo = jugadorScript.puntosInicioCastigo;
@@ -41,10 +44,19 @@ public class castigoScript : MonoBehaviour
         GameObject pelotaColisionada = collision.gameObject;
 
         if (pelotaColisionada.CompareTag("YellowBall"))
+        {
             puntosFamilia++;
+            audioSource.Play();
+        }
 
         else if (pelotaColisionada.CompareTag("GreenBall"))
+        {
             puntosUniversidad++;
+            audioSource.Play();
+        }
+        else if (pelotaColisionada.CompareTag("RedBall"))
+            audioSource.Play();
+
 
         string debugMessage = "";
 

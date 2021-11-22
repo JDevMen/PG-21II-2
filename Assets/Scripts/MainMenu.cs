@@ -5,14 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioClip clickSound;
+
     public void Jugar ()
-    {
-        SceneManager.LoadScene("Intro");
+    { 
+        StartCoroutine(SelectJugar());    
     }
 
     public void Tutorial ()
     {
-        SceneManager.LoadScene("Controles");
+       StartCoroutine( SelectTutorial());     
+    }
+
+    IEnumerator SelectJugar()
+    {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        AudioSource audioSource = camera.GetComponent<AudioSource>();
+        audioSource.clip= clickSound;
+        audioSource.Play(); 
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Intro"); 
+    }
+    
+    IEnumerator SelectTutorial()
+    {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        AudioSource audioSource = camera.GetComponent<AudioSource>();
+        audioSource.clip= clickSound;
+        audioSource.Play(); 
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Controles"); 
     }
 
 
