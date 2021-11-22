@@ -1,5 +1,6 @@
 using UnityEngine.Video;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class loadSceneAfterVideoEnds : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class loadSceneAfterVideoEnds : MonoBehaviour
     {
         Debug.Log("Entró a EndReached");
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Juego");
+        SceneManager.LoadScene("Juego");
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Juego");
+        }
     }
 }
