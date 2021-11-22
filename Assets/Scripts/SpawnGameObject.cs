@@ -82,10 +82,17 @@ public class SpawnGameObject : MonoBehaviour
         Vector2 reticlePos = reticle.transform.position;
 
         direction = reticlePos - (Vector2)transform.position;
-        MoveGenerator();
+        
 
 
     }
+
+    private void FixedUpdate()
+    {
+        MoveGenerator();
+    }
+
+
     void MoveGenerator()
     {
      transform.position += new Vector3(1 * Time.deltaTime*direccion, 0, 0);
