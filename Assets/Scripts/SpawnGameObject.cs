@@ -40,6 +40,8 @@ public class SpawnGameObject : MonoBehaviour
     public int pelotasRebote =1;
     public int pelotasSinRebote = 2;
 
+    private int direccion =-1;
+
     // Use this for initialization
     void Start()
     {
@@ -80,9 +82,27 @@ public class SpawnGameObject : MonoBehaviour
         Vector2 reticlePos = reticle.transform.position;
 
         direction = reticlePos - (Vector2)transform.position;
+        MoveGenerator();
 
 
     }
+    void MoveGenerator()
+    {
+     transform.position += new Vector3(1 * Time.deltaTime*direccion, 0, 0);
+        int num = (int) Random.Range(1 , 40);
+        if(num>38)
+            direccion=direccion*-1;
+        if(transform.position.x>=4)
+        {
+            direccion = -1;
+        }
+        else if(transform.position.x<=-4)
+        {
+            direccion = 1;
+        }
+    }
+    
+
 
     void shootObject(int pRebotesJugador, int pPelota)
     {
@@ -175,6 +195,8 @@ public class SpawnGameObject : MonoBehaviour
             //Debug.Log("Pelotas con rebote lanzadas: "+pelotasLanzadasRebote +"\n"+
                 //"pelotas sin rebote lanzadas: "+pelotasLanzadasSinRebote);
         }
+
+
 
 
     }
