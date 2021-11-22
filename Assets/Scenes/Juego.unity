@@ -930,6 +930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: a66ebbcbb6c094658a9168cc4290d5ab, type: 3}
     - target: {fileID: 6506299372712421893, guid: e409c0dfa28ce45f3ba63fbe25c6018b, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 925796454}
+    - target: {fileID: 6506299372712421893, guid: e409c0dfa28ce45f3ba63fbe25c6018b, type: 3}
       propertyPath: yawnSound
       value: 
       objectReference: {fileID: 8300000, guid: becfea51c2eaf42a49af17da8ecd04a5, type: 3}

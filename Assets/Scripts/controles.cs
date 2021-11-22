@@ -9,6 +9,8 @@ public class controles : MonoBehaviour
     public GameObject stage2;
     public GameObject stage3;
 
+    public AudioSource audio;
+
 
     public void activateStages()
     {
@@ -29,5 +31,10 @@ public class controles : MonoBehaviour
             stage3.SetActive(false);
             SceneManager.LoadScene("Tutorial");   
         }
+    }
+
+    private void Update()
+    {
+        audio.GetComponent<AudioSource>().volume = VolumenMusi.volumen;
     }
 }

@@ -49,6 +49,8 @@ public class paddle_script : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Camera camara;
+
 
 
 
@@ -74,7 +76,7 @@ public class paddle_script : MonoBehaviour
             Debug.Log("No hay script para manejar castigos");
         }
 
-       
+        VolumenMusi.VolumenMusica(camara);
 
 
     }

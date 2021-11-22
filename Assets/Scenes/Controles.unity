@@ -513,6 +513,7 @@ MonoBehaviour:
   stage1: {fileID: 1777841802}
   stage2: {fileID: 1455335545}
   stage3: {fileID: 1781008673}
+  audio: {fileID: 384058475}
 --- !u!114 &220620356
 MonoBehaviour:
   m_ObjectHideFlags: 0
