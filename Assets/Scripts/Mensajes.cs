@@ -20,7 +20,7 @@ public class Mensajes : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && letrero.activeSelf == true)
             cerrarMensaje();
     }
 
