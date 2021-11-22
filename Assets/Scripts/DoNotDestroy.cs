@@ -22,9 +22,7 @@ public class DoNotDestroy : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     {
        if (scene.name == "Menu") {
-                        Debug.Log("I am inside the if statement");
-
-             Destroy(this.gameObject);
+        Destroy(this.gameObject);
        }
  }
 }
