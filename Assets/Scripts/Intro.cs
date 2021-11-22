@@ -58,7 +58,7 @@ public class Intro : MonoBehaviour
         {
             texto5.SetActive(false);
             evento.SetActive(false);
-            SceneManager.LoadScene("Controles");
+            SceneManager.LoadScene("Juego");
         }
     }
 }

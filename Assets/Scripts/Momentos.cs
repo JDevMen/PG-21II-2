@@ -36,7 +36,12 @@ public class Momentos : MonoBehaviour
 
     IEnumerator lanzarMomento(float duracionSemana)
     {
+
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
         GameObject generador = GameObject.FindGameObjectWithTag("Generador");
+        AudioSource audioSource = camera.GetComponent<AudioSource>();
+
+        audioSource.pitch=1.2f;
         lanzadorScript = generador.GetComponent<SpawnGameObject>();
 
         lanzadorScript.modificarPorcentajes(1, 30, 30, 30);
@@ -44,7 +49,9 @@ public class Momentos : MonoBehaviour
 
         yield return new WaitForSeconds(duracionSemana*3);
 
+
         Debug.Log("Termina el momento");
+        audioSource.pitch=1;
 
         lanzadorScript.setPorcentajesIniciales();
         lanzadorScript.setReboteInicial();

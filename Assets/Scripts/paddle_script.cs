@@ -34,6 +34,12 @@ public class paddle_script : MonoBehaviour
     private GameObject iconoJugador;
 
 
+    private AudioSource audioSource;
+    public AudioClip Pong;
+    public AudioClip eventSound;
+    public AudioClip yawnSound;
+
+
     public float points = 0f;
 
     //Puntos del jugador
@@ -59,6 +65,7 @@ public class paddle_script : MonoBehaviour
 
         puntosEnergia = 10;
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
+        audioSource = GetComponent<AudioSource>();
         generadorScript = Generador.GetComponent<SpawnGameObject>();
         GameObject piso = GameObject.FindGameObjectWithTag("Piso");
         castigoScript = piso.GetComponent<castigoScript>();
@@ -146,15 +153,21 @@ public class paddle_script : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("GreenBall"))
         {
             puntosUniversidad++;
             castigoScript.resetUniversidadCastigo();
+            audioSource.clip= Pong;
+            audioSource.Play();
+            
         }
         if (collision.gameObject.CompareTag("YellowBall"))
         {
             puntosFamilia++;
             castigoScript.resetFamiliaCastigo();
+            audioSource.clip= Pong;
+            audioSource.Play();
         }
         if (collision.gameObject.CompareTag("RedBall"))
         {
@@ -164,9 +177,14 @@ public class paddle_script : MonoBehaviour
             {
                 puntosEnergia = 10;
             }
+            audioSource.clip= Pong;
+            audioSource.Play();
         }
         if (collision.gameObject.CompareTag("Evento"))
         {
+
+            audioSource.clip= eventSound;
+            audioSource.Play();
             int num = (int) Random.Range(1 , 11);
             if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
@@ -229,8 +247,10 @@ public class paddle_script : MonoBehaviour
 
     public IEnumerator Dormir()
     {
+        audioSource.clip= yawnSound;
+        audioSource.Play();
         mensajeria.lanzarMensaje("Te has quedado dormido");
-
+        
         numDormido++;
 
         speed = speed * 0;
