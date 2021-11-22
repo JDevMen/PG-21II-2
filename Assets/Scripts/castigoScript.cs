@@ -64,7 +64,7 @@ public class castigoScript : MonoBehaviour
 
         debugMessage += "Numero de pelotasUniversidad caidas: " + puntosUniversidad + "\n";
 
-        //Debug.Log(debugMessage);
+        Debug.Log(debugMessage);
 
         if (puntosFamilia >= puntosAntesCastigo && puntosFamilia < puntosParaCastigo && !warningFamilia && pelotaColisionada.CompareTag("YellowBall"))
         {
@@ -81,6 +81,7 @@ public class castigoScript : MonoBehaviour
 
         if (puntosFamilia >= puntosParaCastigo && pelotaColisionada.CompareTag("YellowBall"))
         {
+            Debug.Log("Entró a puntos para castigo ocio");
             if (warningFamilia)
             {
                 warningFamilia = false;
@@ -96,6 +97,8 @@ public class castigoScript : MonoBehaviour
         }
         if (puntosUniversidad >= puntosParaCastigo && pelotaColisionada.CompareTag("GreenBall"))
         {
+            Debug.Log("Entró a puntos para castigo estudio");
+
             if (warningUniversidad)
             {
                 warningUniversidad = false;
@@ -121,6 +124,9 @@ public class castigoScript : MonoBehaviour
         {
             animationController.deactivatefamiliaDangerAnimation();
         }
+
+        warningFamilia = false;
+        dangerFamilia = false;
     }
     public void resetUniversidadCastigo()
     {
@@ -133,6 +139,10 @@ public class castigoScript : MonoBehaviour
         {
             animationController.deactivateUniversidadDangerAnimation();
         }
+
+        warningUniversidad = false;
+        dangerUniversidad = false;
+
     }
 
     public void castigarFamilia()
