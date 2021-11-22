@@ -136,7 +136,7 @@ public class SpawnGameObject : MonoBehaviour
             int tipoPelota = randomParametro(porcentajeEvento, porcentajeFamilia, porcentajeEnergia, porcentajeUniversidad);
             if (pelotasLanzadasSinRebote < pelotasSinRebote)
             {
-                Debug.Log("Entró a pelotas sin rebote if"); 
+                //Debug.Log("Entró a pelotas sin rebote if"); 
 
                 shootObject(1, tipoPelota);
 
@@ -148,16 +148,16 @@ public class SpawnGameObject : MonoBehaviour
             }
             else if (pelotasLanzadasRebote < pelotasRebote)
             {
-                Debug.Log("Entró a pelotas con rebote if");
+                //Debug.Log("Entró a pelotas con rebote if");
                 if (tipoPelota == 1 || tipoPelota ==3)
                 {
-                    Debug.Log("Entró a no pelotas blancas");
+                    //Debug.Log("Entró a no pelotas blancas");
                     shootObject(player_bounces, tipoPelota);
                     pelotasLanzadasRebote++;
                 }
                 else
                 {
-                    Debug.Log("Entró a pelotas blancas o energía");
+                    //Debug.Log("Entró a pelotas blancas o energía");
                     shootObject(1, tipoPelota);
                 }
 
@@ -172,8 +172,8 @@ public class SpawnGameObject : MonoBehaviour
 
             secondsBetweenSpawning = Random.Range(minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
 
-            Debug.Log("Pelotas con rebote lanzadas: "+pelotasLanzadasRebote +"\n"+
-                "pelotas sin rebote lanzadas: "+pelotasLanzadasSinRebote);
+            //Debug.Log("Pelotas con rebote lanzadas: "+pelotasLanzadasRebote +"\n"+
+                //"pelotas sin rebote lanzadas: "+pelotasLanzadasSinRebote);
         }
 
 
