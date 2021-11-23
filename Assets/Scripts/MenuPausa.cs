@@ -13,11 +13,19 @@ public class MenuPausa : MonoBehaviour
     public Button botonPausa;
     public GameObject mensaje;
 
+    public Slider volumenSlider;
+
+    private GameObject camara;
+
     // Start is called before the first frame update
     void Start()
     {
         Button boton = botonPausa.GetComponent<Button>();
         boton.onClick.AddListener(TaskOnClick);
+
+        volumenSlider.value = VolumenMusi.volumen;
+        camara = GameObject.FindGameObjectWithTag("MainCamera");
+        
     }
 
     void TaskOnClick()
@@ -49,6 +57,19 @@ public class MenuPausa : MonoBehaviour
                 Pausar();
             }
         }
+
+        VolumenMusi.volumen = volumenSlider.value;
+
+        try
+        {
+            camara.GetComponent<AudioSource>().volume = VolumenMusi.volumen;
+        }
+        catch (System.Exception)
+        {
+
+
+        }
+
     }
 
 
