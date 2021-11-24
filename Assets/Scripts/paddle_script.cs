@@ -9,6 +9,7 @@ public class paddle_script : MonoBehaviour
     private float input;
 
     public int numDormido;
+    private bool estaDormido=false;
 
     //Puntos necesarios para empezar a ser castigado
     public int puntosInicioCastigo = 3;
@@ -59,6 +60,7 @@ public class paddle_script : MonoBehaviour
     void Start()
     {
 
+        
         StartCoroutine(waitForUICoroutine());
         rb = GetComponent<Rigidbody2D>();
         if(rb == null)
@@ -190,7 +192,7 @@ public class paddle_script : MonoBehaviour
 
             audioSource.clip= eventSound;
             audioSource.Play();
-            int num = (int) Random.Range(1 , 3);
+            int num = (int) Random.Range(1 , 11);
             if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
                 switch (num)
@@ -256,14 +258,16 @@ public class paddle_script : MonoBehaviour
         audioSource.Play();
         mensajeria.lanzarMensaje("Te has quedado dormido");
         snooze.SetActive(true);
+        estaDormido =true;
         boxCollider.enabled = !boxCollider.enabled;
         numDormido++;
-        float prevSpeed = speed;
+        float prevSpeed =speed;
         speed = speed * 0;
         yield return new WaitForSeconds(2.5f);
         boxCollider.enabled = !boxCollider.enabled;
         snooze.SetActive(false);
         speed = prevSpeed;
+        estaDormido =false;
         Debug.Log("Buff terminado");
     }
 
@@ -277,9 +281,14 @@ public class paddle_script : MonoBehaviour
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
+        if(estaDormido)
+        {
+            yield return new WaitForSeconds(2.5f);
+        }
         speed = speed / 2;
         eventoActivo = false;
         Debug.Log("Buff terminado");
+
     }
 
     IEnumerator scaleDebuff()
@@ -322,6 +331,11 @@ public class paddle_script : MonoBehaviour
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
+
+        if(estaDormido)
+        {
+            yield return new WaitForSeconds(2.5f);
+        }
         speed = speed * 3;
         eventoActivo = false;
 
