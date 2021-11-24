@@ -190,7 +190,7 @@ public class paddle_script : MonoBehaviour
 
             audioSource.clip= eventSound;
             audioSource.Play();
-            int num = (int) Random.Range(1 , 11);
+            int num = (int) Random.Range(1 , 3);
             if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
                 switch (num)
@@ -258,12 +258,12 @@ public class paddle_script : MonoBehaviour
         snooze.SetActive(true);
         boxCollider.enabled = !boxCollider.enabled;
         numDormido++;
-
+        float prevSpeed = speed;
         speed = speed * 0;
         yield return new WaitForSeconds(2.5f);
         boxCollider.enabled = !boxCollider.enabled;
         snooze.SetActive(false);
-        speed = 5;
+        speed = prevSpeed;
         Debug.Log("Buff terminado");
     }
 

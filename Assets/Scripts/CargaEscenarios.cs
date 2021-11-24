@@ -32,15 +32,15 @@ public class CargaEscenarios : MonoBehaviour
     public int calcularPuntajeFinal()
     {
         int diffPuntajes = (int)Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal);
-        int factorCastigo = 1;
+        float factorCastigo = 1;
 
         if(diffPuntajes>=5)
         {
-            factorCastigo=5;
+            factorCastigo=1.5f;
         }
         else if(diffPuntajes<5&&diffPuntajes>=2)
         {
-            factorCastigo =3;
+            factorCastigo =2;
         }
 
         int puntFinal = (int)(puntosUniversidadFinal+puntosFamiliaFinal -(diffPuntajes*factorCastigo) -contDormido);

@@ -286,15 +286,15 @@ public class SpawnGameObject : MonoBehaviour
 
         mensajeria.lanzarMensaje("Te sientes abrumado por la cantidad de cosas por hacer");
 
-        minSecondsBetweenSpawning = 0.3f;
-        maxSecondsBetweenSpawning = 0.7f;
+        minSecondsBetweenSpawning -= 0.7f;
+        maxSecondsBetweenSpawning -= 0.5f;
         eventoActivo = true;
 
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
-        minSecondsBetweenSpawning = 0.5f;
-        maxSecondsBetweenSpawning = 1.0f;
+        minSecondsBetweenSpawning += 0.7f;
+        maxSecondsBetweenSpawning += 0.5f;
         eventoActivo = false;
         //Debug.Log("Debuff terminado");
     }
@@ -304,15 +304,15 @@ public class SpawnGameObject : MonoBehaviour
 
         mensajeria.lanzarMensaje("Por fin llegaron unos días un poco tranquilos");
 
-        minSecondsBetweenSpawning = 2.0f;
-        maxSecondsBetweenSpawning = 3.5f;
+        minSecondsBetweenSpawning += 1f;
+        maxSecondsBetweenSpawning += 2f;
         eventoActivo = true;
 
         yield return new WaitForSeconds(5);
         StartCoroutine(eventsAnimationController.pelotaAnimationCoroutine(2));
         yield return new WaitForSeconds(2);
-        minSecondsBetweenSpawning = 0.5f;
-        maxSecondsBetweenSpawning = 1.0f;
+        minSecondsBetweenSpawning -= 1f;
+        maxSecondsBetweenSpawning -= 2f;
         eventoActivo = false;
         //Debug.Log("Debuff terminado");
     }
