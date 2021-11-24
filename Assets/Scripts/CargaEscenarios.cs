@@ -25,14 +25,33 @@ public class CargaEscenarios : MonoBehaviour
 
     string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal y salud se vieron seriamente afectados.";
     string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio y tu salud se vio seriamente afectados por no descansar.";
-    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno aún si lograste equilibrar la universidad y tu vida personal.";
+    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno aï¿½n si lograste equilibrar la universidad y tu vida personal.";
     string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida! Es todo un hito!";
 
+
+    public int calcularPuntajeFinal()
+    {
+        int diffPuntajes = (int)Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal);
+        int factorCastigo = 1;
+
+        if(diffPuntajes>=5)
+        {
+            factorCastigo=5;
+        }
+        else if(diffPuntajes<5&&diffPuntajes>=2)
+        {
+            factorCastigo =3;
+        }
+
+        int puntFinal = (int)(puntosUniversidadFinal+puntosFamiliaFinal -(diffPuntajes*factorCastigo) -contDormido);
+        Debug.Log("Puntuacion: "+puntFinal);
+        return puntFinal;
+    }
 
     public void mostrarPuntajes()
     {
         textoBoton.text = "Finalizar";
-        
+        calcularPuntajeFinal();
         if (escenario == 1)
         {
             txtPuntaje.text = txtEscenario1;
@@ -70,11 +89,11 @@ public class CargaEscenarios : MonoBehaviour
         string textoPuntaje;
         if (contDormido == 1)
         {
-            textoPuntaje = "Energía: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasión";
+            textoPuntaje = "Energï¿½a: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiï¿½n";
         }
         else
         {
-            textoPuntaje = "Energía: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
+            textoPuntaje = "Energï¿½a: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
         }
 
         Debug.Log(escenario);
