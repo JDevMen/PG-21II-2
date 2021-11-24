@@ -51,7 +51,8 @@ public class paddle_script : MonoBehaviour
 
     public Camera camara;
 
-
+    private GameObject snooze;
+    private BoxCollider2D collider;
 
 
     // Start is called before the first frame update
@@ -75,6 +76,8 @@ public class paddle_script : MonoBehaviour
         {
             Debug.Log("No hay script para manejar castigos");
         }
+        collider = gameObject.GetComponent<BoxCollider2D>();
+        snooze = gameObject.transform.GetChild(0).gameObject;
 
         VolumenMusi.VolumenMusica(camara);
 
@@ -252,11 +255,14 @@ public class paddle_script : MonoBehaviour
         audioSource.clip= yawnSound;
         audioSource.Play();
         mensajeria.lanzarMensaje("Te has quedado dormido");
-        
+        snooze.SetActive(true);
+        collider.enabled = !collider.enabled;
         numDormido++;
 
         speed = speed * 0;
         yield return new WaitForSeconds(2.5f);
+        collider.enabled = !collider.enabled;
+        snooze.SetActive(false);
         speed = 5;
         Debug.Log("Buff terminado");
     }
