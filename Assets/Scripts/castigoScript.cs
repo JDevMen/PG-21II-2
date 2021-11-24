@@ -93,7 +93,9 @@ public class castigoScript : MonoBehaviour
                 animationController.activateFamiliaDangerAnimation();
             }
 
-            castigarFamilia();
+            pelota_script pelota_script = pelotaColisionada.GetComponent<pelota_script>();
+
+            castigarFamilia(pelota_script.player_bounces);
         }
         if (puntosUniversidad >= puntosParaCastigo && pelotaColisionada.CompareTag("GreenBall"))
         {
@@ -109,7 +111,8 @@ public class castigoScript : MonoBehaviour
                 dangerUniversidad = true;
                 animationController.activateUniversidadDangerAnimation();
             }
-            castigarUniversidad();
+            pelota_script pelota_script = pelotaColisionada.GetComponent<pelota_script>();
+            castigarUniversidad(pelota_script.player_bounces);
         }
     }
 
@@ -145,13 +148,13 @@ public class castigoScript : MonoBehaviour
 
     }
 
-    public void castigarFamilia()
+    public void castigarFamilia(int pRebotes)
     {
         if (jugadorScript.puntosFamilia > 0)
             jugadorScript.puntosFamilia -= puntosCastigo;
         //Debug.Log("Castigado en puntos de familia");
     }
-    public void castigarUniversidad()
+    public void castigarUniversidad(int pRebotes)
     {
         if (jugadorScript.puntosUniversidad > 0)
             jugadorScript.puntosUniversidad -= puntosCastigo;
