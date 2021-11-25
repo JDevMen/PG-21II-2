@@ -9,6 +9,7 @@ public class loadSceneAfterVideoEnds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "Intro BalanceUNIversal_Trim.mp4");
         videoPlayer.loopPointReached += EndReached;
     }
 
