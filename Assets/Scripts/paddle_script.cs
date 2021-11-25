@@ -192,7 +192,18 @@ public class paddle_script : MonoBehaviour
 
             audioSource.clip= eventSound;
             audioSource.Play();
-            int num = (int) Random.Range(1 , 11);
+            int num =0;
+
+            if(eventoActivo)
+            {
+                num = Random.Range(6 , 11);
+            }
+            else if(generadorScript.eventoActivo)
+            {
+                num = Random.Range(1 , 6);
+            }
+            else
+                num = (int) Random.Range(1 , 11);
             if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
                 switch (num)
