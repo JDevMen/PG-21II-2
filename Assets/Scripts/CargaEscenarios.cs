@@ -14,6 +14,8 @@ public class CargaEscenarios : MonoBehaviour
     public GameObject esce3;
     public GameObject esce4;
 
+    public bool verCalculo = false; 
+
     public TMP_Text textoBoton;
 
     int escenario = EvaluacionPuntaje.escenarioCargar;
@@ -50,36 +52,41 @@ public class CargaEscenarios : MonoBehaviour
 
     public void mostrarPuntajes()
     {
-        textoBoton.text = "Finalizar";
-        calcularPuntajeFinal();
-        if (escenario == 1)
+        if(verCalculo==false)
         {
-            txtPuntaje.text = txtEscenario1;
-            escenario = 0;
+            txtPuntaje.text = "Puntaje final: " + calcularPuntajeFinal();
+            verCalculo = true;
         }
-        else if (escenario == 2)
+        else
         {
-            txtPuntaje.text = txtEscenario2;
-            escenario = 0;
+            textoBoton.text = "Finalizar";
+            if (escenario == 1)
+            {
+                txtPuntaje.text = txtEscenario1;
+                escenario = 0;
+            }
+            else if (escenario == 2)
+            {
+                txtPuntaje.text = txtEscenario2;
+                escenario = 0;
+            }
+            else if (escenario == 3)
+            {
+                txtPuntaje.text = txtEscenario3;
+                escenario = 0;
+            }
+            else if (escenario == 4)
+            {
+                txtPuntaje.text = txtEscenario4;
+                escenario = 0;
+            }
+            else if (escenario == 0)
+            {
+                esce1.SetActive(false);
+                Debug.Log("click");
+                SceneManager.LoadScene("Menu");
+            }
         }
-        else if (escenario == 3)
-        {
-            txtPuntaje.text = txtEscenario3;
-            escenario = 0;
-        }
-        else if (escenario == 4)
-        {
-            txtPuntaje.text = txtEscenario4;
-            escenario = 0;
-        }
-        else if (escenario == 0)
-        {
-            esce1.SetActive(false);
-            Debug.Log("click");
-            SceneManager.LoadScene("Menu");
-        }
-
-
     }
 
 
@@ -89,11 +96,11 @@ public class CargaEscenarios : MonoBehaviour
         string textoPuntaje;
         if (contDormido == 1)
         {
-            textoPuntaje = "Energ�a: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasi�n";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasi�n";
         }
         else
         {
-            textoPuntaje = "Energ�a: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
         }
 
         Debug.Log(escenario);
