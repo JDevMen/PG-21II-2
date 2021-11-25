@@ -10,7 +10,10 @@ public class Momentos : MonoBehaviour
     private Temporizador temp;
     private float tiempo;
     public GameObject textoMomentoObj;
+    private Animator momentoAnimator;
     public TMP_Text textoMomentos;
+
+    public float duracionParpadeo= 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,8 @@ public class Momentos : MonoBehaviour
 
         temp = UIcanvas.GetComponent<Temporizador>();
         lanzadorScript = Generador.GetComponent<SpawnGameObject>();
+
+        momentoAnimator = textoMomentoObj.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,6 +53,15 @@ public class Momentos : MonoBehaviour
 
     }
 
+    IEnumerator parpadeo()
+    {
+
+        Debug.LogWarning("Entró a parpadeo");
+
+        momentoAnimator.Play("lookAtMe");
+        yield return new WaitForSeconds(duracionParpadeo);
+        momentoAnimator.Play("Default");
+    }
 
     IEnumerator lanzarMomento1(float duracionSemana)
     {
@@ -63,6 +77,7 @@ public class Momentos : MonoBehaviour
         lanzadorScript.modificarPorcentajes(1, 30, 30, 40);
         lanzadorScript.modificarRebote(1,5);
 
+        StartCoroutine(parpadeo());
         yield return new WaitForSeconds(duracionSemana*2);
 
 
@@ -73,6 +88,8 @@ public class Momentos : MonoBehaviour
         lanzadorScript.setReboteInicial();
         textoMomentoObj.SetActive(false);
     }
+
+
 
 
     IEnumerator lanzarMomento2(float duracionSemana)
@@ -88,6 +105,7 @@ public class Momentos : MonoBehaviour
 
         lanzadorScript.modificarPorcentajes(10, 30, 35, 20);
 
+        StartCoroutine(parpadeo());
         yield return new WaitForSeconds(duracionSemana * 2);
 
 
@@ -113,6 +131,7 @@ public class Momentos : MonoBehaviour
         lanzadorScript.modificarPorcentajes(10, 30, 20, 40);
         lanzadorScript.modificarRebote(1, 5);
 
+        StartCoroutine(parpadeo());
         yield return new WaitForSeconds(duracionSemana * 4);
 
 

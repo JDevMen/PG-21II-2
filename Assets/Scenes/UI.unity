@@ -1281,6 +1281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723568452}
+  - component: {fileID: 723568453}
   m_Layer: 5
   m_Name: TextoMomentos
   m_TagString: Untagged
@@ -1308,6 +1309,25 @@ RectTransform:
   m_AnchoredPosition: {x: 675.99994, y: -281.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &723568453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723568451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbf60d7df47ba7f46897c648cf617a1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &760468985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,7 +3863,7 @@ MonoBehaviour:
   energia: {fileID: 4100940759721274499}
   universidad: {fileID: 8135331234797826058}
   familia: {fileID: 438542767704116796}
-  puntajeMax: 20
+  puntajeMax: 25
 --- !u!114 &1733644515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,6 +3978,7 @@ MonoBehaviour:
   lanzadorScript: {fileID: 0}
   textoMomentoObj: {fileID: 723568451}
   textoMomentos: {fileID: 1447064429}
+  duracionParpadeo: 2
 --- !u!1 &1825195849
 GameObject:
   m_ObjectHideFlags: 0
