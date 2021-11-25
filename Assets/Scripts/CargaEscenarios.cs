@@ -34,10 +34,10 @@ public class CargaEscenarios : MonoBehaviour
     float factorCastigo = 1;
 
 
-    string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal y salud se vieron seriamente afectados.";
-    string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio y tu salud se vio seriamente afectados por no descansar.";
-    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno a�n si lograste equilibrar la universidad y tu vida personal.";
-    string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida! Es todo un hito!";
+    string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal se vio seriamente afectada.";
+    string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio.";
+    string txtEscenario3 = "Este no ha sido tu mejor semestre, no lograste pasar tus materias, y descuidaste tu vida personal el próximo semestre lo haras mejor";
+    string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida, pasaste el semestre y aprovechaste tu tiempo libre";
 
 
     public int calcularPuntajeFinal()
@@ -132,13 +132,13 @@ public class CargaEscenarios : MonoBehaviour
         if (contDormido == 1)
         {
             textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
-            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castido de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castigo de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
             " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo + "\n\nY te has quedado dormido contra tu voluntad en " + contDormido + " ocasi�n";
         }
         else
         {
             textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
-            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castido de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castigo de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
             " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo +  "\n\nTe has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
         }
 
