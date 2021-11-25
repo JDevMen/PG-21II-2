@@ -334,7 +334,7 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator debuff()
     {
-        speed = speed / 3;
+        speed = speed / 2.5f;
         eventoActivo = true;
         mensajeria.lanzarMensaje("Tuviste una pesadilla, la noche no fue buena para ti y no descansaste");
 
@@ -347,7 +347,7 @@ public class paddle_script : MonoBehaviour
         {
             yield return new WaitForSeconds(2.5f);
         }
-        speed = speed * 3;
+        speed = speed * 2.5f;
         eventoActivo = false;
 
         Debug.Log("Debuff terminado");

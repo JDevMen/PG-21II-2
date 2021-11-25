@@ -20,12 +20,19 @@ public class CargaEscenarios : MonoBehaviour
     public GameObject botonReintentar;
     public TMP_Text textoBoton;
 
+    private AudioSource audioSource;
+    public AudioClip ganadorSound;
+    public AudioClip perdedorSound;
+
+
     int escenario = EvaluacionPuntaje.escenarioCargar;
 
     float puntosEnergiaFinal = EvaluacionPuntaje.puntosEnergiaFinal;
     float puntosUniversidadFinal = EvaluacionPuntaje.puntosUniversidadFinal;
     float puntosFamiliaFinal = EvaluacionPuntaje.puntosFamiliaFinal;
     int contDormido = EvaluacionPuntaje.contadorDormido;
+    float factorCastigo = 1;
+
 
     string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal y salud se vieron seriamente afectados.";
     string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio y tu salud se vio seriamente afectados por no descansar.";
@@ -36,7 +43,6 @@ public class CargaEscenarios : MonoBehaviour
     public int calcularPuntajeFinal()
     {
         int diffPuntajes = (int)Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal);
-        float factorCastigo = 1;
 
         if(diffPuntajes>=5)
         {
@@ -56,7 +62,14 @@ public class CargaEscenarios : MonoBehaviour
     {
         if(verCalculo==false)
         {
-            txtPuntaje.text = "Puntaje final: " + calcularPuntajeFinal();
+            txtPuntaje.text = "Puntaje Universidad: " + puntosUniversidadFinal*10+"\n"+"\n";
+            txtPuntaje.text += "Puntaje Ocio: " + puntosFamiliaFinal*10+"\n"+"\n";
+            txtPuntaje.text += "Castigo Veces Dormido: " + -contDormido*10+"\n"+"\n";
+            txtPuntaje.text += "Castigo Desequilibrio: " + -(Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo)*10+"\n"+"\n";
+               
+            
+
+            txtPuntaje.text += "Puntaje final: " + 10*calcularPuntajeFinal();
             verCalculo = true;
         }
         else
@@ -104,14 +117,29 @@ public class CargaEscenarios : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        AudioSource audioSource = camera.GetComponent<AudioSource>();
+
+        if(puntosFamiliaFinal>=17&&puntosUniversidadFinal>=17)
+            audioSource.clip= ganadorSound;
+        else
+            audioSource.clip= perdedorSound;
+        Debug.Log(ganadorSound);
+
+        audioSource.Play(); 
+        calcularPuntajeFinal();
         string textoPuntaje;
         if (contDormido == 1)
         {
-            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasi�n";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castido de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo + "\n\nY te has quedado dormido contra tu voluntad en " + contDormido + " ocasi�n";
         }
         else
         {
-            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castido de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo +  "\n\nTe has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
         }
 
         Debug.Log(escenario);

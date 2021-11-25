@@ -3,7 +3,17 @@ guid: 2c200f543133fc342832836e8733c884
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - esce1: {instanceID: 0}
+  - txtPuntaje: {instanceID: 0}
+  - esce2: {instanceID: 0}
+  - esce3: {instanceID: 0}
+  - esce4: {instanceID: 0}
+  - botonFin: {instanceID: 0}
+  - botonReintentar: {instanceID: 0}
+  - textoBoton: {instanceID: 0}
+  - ganadorSound: {fileID: 8300000, guid: e1269440aa20f4d26ba2358ddc75bbe1, type: 3}
+  - perdedorSound: {fileID: 8300000, guid: afe0bbeef75b547ae8bf6d901386a353, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

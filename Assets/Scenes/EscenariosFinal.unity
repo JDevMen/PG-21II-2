@@ -707,6 +707,8 @@ MonoBehaviour:
   botonFin: {fileID: 1618258559}
   botonReintentar: {fileID: 935463839}
   textoBoton: {fileID: 208071243}
+  ganadorSound: {fileID: 8300000, guid: e1269440aa20f4d26ba2358ddc75bbe1, type: 3}
+  perdedorSound: {fileID: 8300000, guid: afe0bbeef75b547ae8bf6d901386a353, type: 3}
 --- !u!114 &1105627886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,7 +1381,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e1269440aa20f4d26ba2358ddc75bbe1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: afe0bbeef75b547ae8bf6d901386a353, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
