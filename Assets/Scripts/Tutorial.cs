@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
     public GameObject UICanvas;
     public GameObject panelOscuro;
     public GameObject panelJugador;
+    Animator panelJugadorAnimator;
     public GameObject panelBarras;
     public GameObject panelPelotas;
     public GameObject panelEvento;
@@ -46,6 +47,9 @@ public class Tutorial : MonoBehaviour
                 mensaje.SetActive(true);
                 botonPausa.SetActive(false);
                 panelJugador.SetActive(true);
+                panelJugadorAnimator = panelJugador.GetComponent<Animator>();
+                panelJugadorAnimator.Play("upAndDown");
+                 
                 mensajeria.lanzarMensaje("Este es el jugador");
             }
         }
@@ -57,18 +61,11 @@ public class Tutorial : MonoBehaviour
     
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
     public void transicionTutorial()
     {
         if (panelJugador.activeSelf == true)
         {
+            panelJugadorAnimator.Play("Exit");
             panelJugador.SetActive(false);
             panelBarras.SetActive(true);
             mensajeria.lanzarMensaje("Estas barras indican los puntos de cada uno de los aspectos de tu vida");
