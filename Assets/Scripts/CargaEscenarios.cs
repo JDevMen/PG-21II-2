@@ -36,11 +36,11 @@ public class CargaEscenarios : MonoBehaviour
 
         if(diffPuntajes>=5)
         {
-            factorCastigo=1.5f;
+            factorCastigo=2;
         }
         else if(diffPuntajes<5&&diffPuntajes>=2)
         {
-            factorCastigo =2;
+            factorCastigo = 1.5f;
         }
 
         int puntFinal = (int)(puntosUniversidadFinal+puntosFamiliaFinal -(diffPuntajes*factorCastigo) -contDormido);
