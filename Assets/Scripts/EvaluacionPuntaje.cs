@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EvaluacionPuntaje : MonoBehaviour
 {
     private Temporizador temp;
-    private int tiempo;
+    private float tiempo;
     public static int escenarioCargar;
     public static float puntosEnergiaFinal;
     public static float puntosUniversidadFinal;
@@ -48,7 +48,7 @@ public class EvaluacionPuntaje : MonoBehaviour
             puntosFamilia = jugadorScript.getPuntosFamilia();
             contDormido = jugadorScript.numDormido;
 
-            if (tiempo == 0)
+            if (tiempo == temp.tiempoParaCalcular)
             {
                 puntosEnergiaFinal = puntosEnergia;
                 puntosFamiliaFinal = puntosFamilia;
@@ -56,21 +56,21 @@ public class EvaluacionPuntaje : MonoBehaviour
                 contadorDormido = contDormido;
 
 
-                if (puntosEnergia <=3)
+                if (puntosFamiliaFinal >=17&& puntosUniversidadFinal>=17)
                 {
-                    escenarioCargar = 3;
+                    escenarioCargar = 4;
                 }
-                else if (puntosFamilia > puntosUniversidad + 2 )
+                else if (puntosFamiliaFinal >=17&& puntosUniversidadFinal<17)
                 {
                     escenarioCargar = 2;
                 }
-                else if (puntosUniversidad > puntosFamilia + 2)
+                else if (puntosFamiliaFinal <17&& puntosUniversidadFinal>=17)
                 {
                     escenarioCargar = 1;
                 }
                 else
                 {
-                    escenarioCargar = 4;
+                    escenarioCargar = 3;
                 }
 
                 SceneManager.LoadScene("EscenariosFinal");

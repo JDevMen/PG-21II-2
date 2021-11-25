@@ -14,7 +14,16 @@ public class CargaEscenarios : MonoBehaviour
     public GameObject esce3;
     public GameObject esce4;
 
+    public bool verCalculo = false;
+
+    public GameObject botonFin;
+    public GameObject botonReintentar;
     public TMP_Text textoBoton;
+
+    private AudioSource audioSource;
+    public AudioClip ganadorSound;
+    public AudioClip perdedorSound;
+
 
     int escenario = EvaluacionPuntaje.escenarioCargar;
 
@@ -22,59 +31,115 @@ public class CargaEscenarios : MonoBehaviour
     float puntosUniversidadFinal = EvaluacionPuntaje.puntosUniversidadFinal;
     float puntosFamiliaFinal = EvaluacionPuntaje.puntosFamiliaFinal;
     int contDormido = EvaluacionPuntaje.contadorDormido;
+    float factorCastigo = 1;
 
-    string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal y salud se vieron seriamente afectados.";
-    string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio y tu salud se vio seriamente afectados por no descansar.";
-    string txtEscenario3 = "Parece ser que descuidaste tu salud, eso no es bueno aún si lograste equilibrar la universdidad y tu vida personal.";
-    string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida! Es todo un hito!";
 
+    string txtEscenario1 = "Parece ser que te dedicaste mucho al estudio. Sin embargo tu vida personal se vio seriamente afectada.";
+    string txtEscenario2 = "Parece ser que lograste sacar tiempo para tu familia y vida personal. Sin embargo dejaste de lado el estudio.";
+    string txtEscenario3 = "Este no ha sido tu mejor semestre, no lograste pasar tus materias, y descuidaste tu vida personal el prÃ³ximo semestre lo haras mejor";
+    string txtEscenario4 = "Felicitaciones! Lograste equilibrar las distintas facetas de tu vida, pasaste el semestre y aprovechaste tu tiempo libre";
+
+
+    public int calcularPuntajeFinal()
+    {
+        int diffPuntajes = (int)Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal);
+
+        if(diffPuntajes>=5)
+        {
+            factorCastigo=2;
+        }
+        else if(diffPuntajes<5&&diffPuntajes>=2)
+        {
+            factorCastigo = 1.5f;
+        }
+
+        int puntFinal = (int)(puntosUniversidadFinal+puntosFamiliaFinal -(diffPuntajes*factorCastigo) -contDormido);
+        Debug.Log("Puntuacion: "+puntFinal);
+        return puntFinal;
+    }
 
     public void mostrarPuntajes()
     {
-        textoBoton.text = "Finalizar";
-        
-        if (escenario == 1)
+        if(verCalculo==false)
         {
-            txtPuntaje.text = txtEscenario1;
-            escenario = 0;
-        }
-        else if (escenario == 2)
-        {
-            txtPuntaje.text = txtEscenario2;
-            escenario = 0;
-        }
-        else if (escenario == 3)
-        {
-            txtPuntaje.text = txtEscenario3;
-            escenario = 0;
-        }
-        else if (escenario == 4)
-        {
-            txtPuntaje.text = txtEscenario4;
-            escenario = 0;
-        }
-        else if (escenario == 0)
-        {
-            esce1.SetActive(false);
-            Debug.Log("click");
-            SceneManager.LoadScene("Menu");
-        }
+            txtPuntaje.text = "Puntaje Universidad: " + puntosUniversidadFinal*10+"\n"+"\n";
+            txtPuntaje.text += "Puntaje Ocio: " + puntosFamiliaFinal*10+"\n"+"\n";
+            txtPuntaje.text += "Castigo Veces Dormido: " + -contDormido*10+"\n"+"\n";
+            txtPuntaje.text += "Castigo Desequilibrio: " + -(Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo)*10+"\n"+"\n";
+               
+            
 
+            txtPuntaje.text += "Puntaje final: " + 10*calcularPuntajeFinal();
+            verCalculo = true;
+        }
+        else
+        {
+            botonReintentar.SetActive(true);
+            Vector3 pos = new Vector3(250, 0, 0);
+            botonFin.transform.localPosition += pos;
+            textoBoton.text = "Finalizar";
 
+            if (escenario == 1)
+            {
+                txtPuntaje.text = txtEscenario1;
+                escenario = 0;
+            }
+            else if (escenario == 2)
+            {
+                txtPuntaje.text = txtEscenario2;
+                escenario = 0;
+            }
+            else if (escenario == 3)
+            {
+                txtPuntaje.text = txtEscenario3;
+                escenario = 0;
+            }
+            else if (escenario == 4)
+            {
+                txtPuntaje.text = txtEscenario4;
+                escenario = 0;
+            }
+            else if (escenario == 0)
+            {
+                esce1.SetActive(false);
+                Debug.Log("click");
+                SceneManager.LoadScene("Menu");
+            }
+        }
+    }
+
+    public void reintentar()
+    {
+        SceneManager.LoadScene("Juego");
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        AudioSource audioSource = camera.GetComponent<AudioSource>();
+
+        if(puntosFamiliaFinal>=17&&puntosUniversidadFinal>=17)
+            audioSource.clip= ganadorSound;
+        else
+            audioSource.clip= perdedorSound;
+        Debug.Log(ganadorSound);
+
+        audioSource.Play(); 
+        calcularPuntajeFinal();
         string textoPuntaje;
         if (contDormido == 1)
         {
-            textoPuntaje = "Energía: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasión";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castigo de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo + "\n\nY te has quedado dormido contra tu voluntad en " + contDormido + " ocasiï¿½n";
         }
         else
         {
-            textoPuntaje = "Energía: " + puntosEnergiaFinal + "\n" + "Universidad: " + puntosUniversidadFinal + "\n" + "Familia: " + puntosFamiliaFinal + "\n \n" + "Te has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
+            textoPuntaje = "Universidad: " + puntosUniversidadFinal + "\n\n" + "Ocio: " + puntosFamiliaFinal + "\n\nEl desbalanceo en tus estadisticas fue: "
+            +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+ "\n\nLo que representa un castigo de: " +factorCastigo+" x " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)+
+            " = " +Mathf.Abs(puntosUniversidadFinal-puntosFamiliaFinal)*factorCastigo +  "\n\nTe has quedado dormido contra tu voluntad en " + contDormido + " ocasiones";
         }
 
         Debug.Log(escenario);

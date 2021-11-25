@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
     public GameObject UICanvas;
     public GameObject panelOscuro;
     public GameObject panelJugador;
+    Animator panelJugadorAnimator;
     public GameObject panelBarras;
     public GameObject panelPelotas;
     public GameObject panelEvento;
@@ -35,20 +36,23 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         
-        //panelOscuro = GameObject.FindGameObjectWithTag("pOscuro");
+        panelOscuro = GameObject.FindGameObjectWithTag("pOscuro");
 
-        //if(panelOscuro != null)
-        //{
-        //    if (panelOscuro.activeSelf == true)
-        //    {
-        //        Time.timeScale = 0f;
-        //        mensajeria = UICanvas.GetComponent<MensajeTutorial>();
-        //        mensaje.SetActive(true);
-        //        botonPausa.SetActive(false);
-        //        panelJugador.SetActive(true);
-        //        mensajeria.lanzarMensaje("Este es el jugador");
-        //    }
-        //}
+        if(panelOscuro != null)
+        {
+            if (panelOscuro.activeSelf == true)
+            {
+                Time.timeScale = 0f;
+                mensajeria = UICanvas.GetComponent<MensajeTutorial>();
+                mensaje.SetActive(true);
+                botonPausa.SetActive(false);
+                panelJugador.SetActive(true);
+                panelJugadorAnimator = panelJugador.GetComponent<Animator>();
+                panelJugadorAnimator.Play("upAndDown");
+                 
+                mensajeria.lanzarMensaje("Este es el jugador");
+            }
+        }
         
 
     }
@@ -57,18 +61,11 @@ public class Tutorial : MonoBehaviour
     
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
     public void transicionTutorial()
     {
         if (panelJugador.activeSelf == true)
         {
+            panelJugadorAnimator.Play("Exit");
             panelJugador.SetActive(false);
             panelBarras.SetActive(true);
             mensajeria.lanzarMensaje("Estas barras indican los puntos de cada uno de los aspectos de tu vida");
@@ -77,33 +74,11 @@ public class Tutorial : MonoBehaviour
         {
             panelBarras.SetActive(false);
             panelTiempo.SetActive(true);
-            mensajeria.lanzarMensaje("Esta barra representa el avance del semestre");
+            mensajeria.lanzarMensaje("Esta barra representa el avance del semestre. La duración de este es de 16 semanas.");
+
+            textoBoton.text = "Volver al menú";
         }
         else if (panelTiempo.activeSelf == true)
-        {
-            panelTiempo.SetActive(false);
-            panelPelotas.SetActive(true);
-            pelotaRoja.SetActive(true);
-            pelotaAmarilla.SetActive(true);
-            pelotaVerde.SetActive(true);
-            mensajeria.lanzarMensaje("Roja: Estudios \n Verde: Energía \n Amarilla: Felicidad");
-        }
-        else if(panelPelotas.activeSelf == true)
-        {
-            panelPelotas.SetActive(false);
-            pelotaRoja.SetActive(false);
-            pelotaAmarilla.SetActive(false);
-            pelotaVerde.SetActive(false);
-            panelEvento.SetActive(true);
-            pelotaEvento.SetActive(true);
-
-
-            textoBoton.text = "Jugar";
-
-            mensajeria.lanzarMensaje("Si recoges una de estas puede activarse un evento aleatorio de la misma naturaleza.");
-
-        }
-        else if(panelEvento.activeSelf == true)
         {
             panelEvento.SetActive(false);
             pelotaEvento.SetActive(false);
@@ -111,7 +86,7 @@ public class Tutorial : MonoBehaviour
 
 
             Time.timeScale = 1f;
-            SceneManager.LoadScene("Juego");
+            SceneManager.LoadScene("Menu");
         }
             
 

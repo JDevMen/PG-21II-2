@@ -9,6 +9,7 @@ public class paddle_script : MonoBehaviour
     private float input;
 
     public int numDormido;
+    private bool estaDormido=false;
 
     //Puntos necesarios para empezar a ser castigado
     public int puntosInicioCastigo = 3;
@@ -21,11 +22,25 @@ public class paddle_script : MonoBehaviour
     //Script castigo
     private castigoScript castigoScript;
 
+
+    public eventsAnimationsController eventsAnimationController;
+
     public float eventTimer = 0f;
     private bool DebuffInput;
     public bool eventoActivo = false;
-   
-        
+
+
+    private GameObject iconosEventos;
+    private GameObject iconoPelota;
+    private GameObject iconoJugador;
+
+
+    private AudioSource audioSource;
+    public AudioClip Pong;
+    public AudioClip eventSound;
+    public AudioClip yawnSound;
+
+
     public float points = 0f;
 
     //Puntos del jugador
@@ -35,10 +50,17 @@ public class paddle_script : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public Camera camara;
+
+    private GameObject snooze;
+    private BoxCollider2D boxCollider;
+
+
     // Start is called before the first frame update
     void Start()
     {
 
+        
         StartCoroutine(waitForUICoroutine());
         rb = GetComponent<Rigidbody2D>();
         if(rb == null)
@@ -48,6 +70,7 @@ public class paddle_script : MonoBehaviour
 
         puntosEnergia = 10;
         GameObject Generador = GameObject.FindGameObjectWithTag("Generador");
+        audioSource = GetComponent<AudioSource>();
         generadorScript = Generador.GetComponent<SpawnGameObject>();
         GameObject piso = GameObject.FindGameObjectWithTag("Piso");
         castigoScript = piso.GetComponent<castigoScript>();
@@ -55,6 +78,11 @@ public class paddle_script : MonoBehaviour
         {
             Debug.Log("No hay script para manejar castigos");
         }
+        boxCollider = gameObject.GetComponent<BoxCollider2D>();
+        snooze = gameObject.transform.GetChild(0).gameObject;
+
+        VolumenMusi.VolumenMusica(camara);
+
 
     }
 
@@ -70,6 +98,15 @@ public class paddle_script : MonoBehaviour
         mensajeria = UIcanvas.GetComponent<Mensajes>();
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+
+        GameObject canvas = GameObject.FindGameObjectWithTag("UIcanvas");
+
+        iconosEventos = canvas.transform.Find("iconosEventos").gameObject;
+
+        iconoPelota = iconosEventos.transform.Find("eventoPelotaIcon").gameObject;
+        iconoJugador = iconosEventos.transform.Find("eventoJugadorIcon").gameObject;
+
+        eventsAnimationController = canvas.GetComponent<eventsAnimationsController>();
 
 
     }
@@ -103,20 +140,41 @@ public class paddle_script : MonoBehaviour
 
             }
 
+        if (iconosEventos != null)
+        {
+            if (generadorScript.eventoActivo)
+                iconoPelota.SetActive(true);
+            else
+                iconoPelota.SetActive(false);
+
+            if (this.eventoActivo)
+            {
+                iconoJugador.SetActive(true);
+            }
+            else
+                iconoJugador.SetActive(false);
+        }
+
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("GreenBall"))
         {
             puntosUniversidad++;
             castigoScript.resetUniversidadCastigo();
+            audioSource.clip= Pong;
+            audioSource.Play();
+            
         }
         if (collision.gameObject.CompareTag("YellowBall"))
         {
             puntosFamilia++;
             castigoScript.resetFamiliaCastigo();
+            audioSource.clip= Pong;
+            audioSource.Play();
         }
         if (collision.gameObject.CompareTag("RedBall"))
         {
@@ -126,45 +184,71 @@ public class paddle_script : MonoBehaviour
             {
                 puntosEnergia = 10;
             }
+            audioSource.clip= Pong;
+            audioSource.Play();
         }
         if (collision.gameObject.CompareTag("Evento"))
         {
-            int num = (int) Random.Range(1 , 11);
+
+            audioSource.clip= eventSound;
+            audioSource.Play();
+            int num =0;
+
+            if(eventoActivo)
+            {
+                num = Random.Range(6 , 11);
+            }
+            else if(generadorScript.eventoActivo)
+            {
+                num = Random.Range(1 , 6);
+            }
+            else
+                num = (int) Random.Range(1 , 11);
             if ((num >= 6 && !generadorScript.eventoActivo) || (num < 6 && !this.eventoActivo))
             {
                 switch (num)
                 {
                     case 1:
                         StartCoroutine(buff());
+                        eventsAnimationController.changePlayerEventSprite("playerEvent1");
                         break;
 
                     case 2:
                         StartCoroutine(debuff());
+                        eventsAnimationController.changePlayerEventSprite("playerEvent4");
                         break;
 
                     case 3:
                         StartCoroutine(scaleDebuff());
+                        eventsAnimationController.changePlayerEventSprite("playerEvent2");
                         break;
                     case 4:
                         StartCoroutine(scaleBuff());
+                        eventsAnimationController.changePlayerEventSprite("playerEvent3");
                         break;
                     case 5:
                         StartCoroutine(debuffInput());
+                        eventsAnimationController.changePlayerEventSprite("playerEvent5");
                         break;
                     case 6:
                         StartCoroutine(generadorScript.DebuffTamañoPelota());
+                        eventsAnimationController.changeBallEventSprite("ballEvent1");
                         break;
                     case 7:
                         StartCoroutine(generadorScript.DebuffVelocidadPelota());
+                        eventsAnimationController.changeBallEventSprite("ballEvent2");
                         break;
                     case 8:
                         StartCoroutine(generadorScript.BuffVelocidadPelota());
+                        eventsAnimationController.changeBallEventSprite("ballEvent3");
                         break;
                     case 9:
                         StartCoroutine(generadorScript.DebuffSpawnTime());
+                        eventsAnimationController.changeBallEventSprite("ballEvent4");
                         break;
                     case 10:
                         StartCoroutine(generadorScript.BuffSpawnTime());
+                        eventsAnimationController.changeBallEventSprite("ballEvent5");
                         break;
 
                     default:
@@ -181,15 +265,20 @@ public class paddle_script : MonoBehaviour
 
     public IEnumerator Dormir()
     {
+        audioSource.clip= yawnSound;
+        audioSource.Play();
         mensajeria.lanzarMensaje("Te has quedado dormido");
-
+        snooze.SetActive(true);
+        estaDormido =true;
+        boxCollider.enabled = !boxCollider.enabled;
         numDormido++;
-
+        float prevSpeed =speed;
         speed = speed * 0;
-        eventoActivo = true;
         yield return new WaitForSeconds(2.5f);
-        speed = 5;
-        eventoActivo = false;
+        boxCollider.enabled = !boxCollider.enabled;
+        snooze.SetActive(false);
+        speed = prevSpeed;
+        estaDormido =false;
         Debug.Log("Buff terminado");
     }
 
@@ -200,10 +289,17 @@ public class paddle_script : MonoBehaviour
 
         speed = speed * 2;
         eventoActivo = true;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
+        if(estaDormido)
+        {
+            yield return new WaitForSeconds(2.5f);
+        }
         speed = speed / 2;
         eventoActivo = false;
         Debug.Log("Buff terminado");
+
     }
 
     IEnumerator scaleDebuff()
@@ -211,8 +307,10 @@ public class paddle_script : MonoBehaviour
         transform.localScale = new Vector3(0.5f,0.5f,1);
         eventoActivo = true;
         mensajeria.lanzarMensaje("Hoy tu transporte se demoró, sera mas dïficil cumplir tus tareas");
-    
-        yield return new WaitForSeconds(7);
+
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         transform.localScale = new Vector3(2, 2f, 1);
 
         eventoActivo = false;
@@ -225,7 +323,9 @@ public class paddle_script : MonoBehaviour
         eventoActivo = true;
         mensajeria.lanzarMensaje("La comida de hoy te dio mucho gusto te sera mas facil cumplir tus tareas");
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         transform.localScale = new Vector3(2, 2f, 1);
 
         eventoActivo = false;
@@ -234,13 +334,20 @@ public class paddle_script : MonoBehaviour
 
     IEnumerator debuff()
     {
-        speed = speed / 3;
+        speed = speed / 2.5f;
         eventoActivo = true;
         mensajeria.lanzarMensaje("Tuviste una pesadilla, la noche no fue buena para ti y no descansaste");
 
 
-        yield return new WaitForSeconds(7);
-        speed = speed * 3;
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
+
+        if(estaDormido)
+        {
+            yield return new WaitForSeconds(2.5f);
+        }
+        speed = speed * 2.5f;
         eventoActivo = false;
 
         Debug.Log("Debuff terminado");
@@ -252,20 +359,14 @@ public class paddle_script : MonoBehaviour
         eventoActivo = true;
         mensajeria.lanzarMensaje("Unos amigos te invitaron a salir anoche y te divertiste demasiado hoy tienes mareo al despertar");
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
+        StartCoroutine(eventsAnimationController.jugadorAnimationCoroutine(2));
+        yield return new WaitForSeconds(2);
         DebuffInput = false;
         eventoActivo = false;
 
         Debug.Log("Debuff terminado");
     }
-
-        
-
-    //private void FixedUpdate()
-    //{
-    //    GetComponent<Rigidbody2D>().velocity = Vector2.right * input * speed;
-
-    //}
 
 
     public float getPuntosEnergia()

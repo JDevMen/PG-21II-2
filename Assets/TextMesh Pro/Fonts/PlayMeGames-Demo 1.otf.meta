@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0572dd0273e05284184591d1a0943eae
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - PlayMeGames
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3a8a0b0ec43f1ca41a69d9aada52ce77, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
