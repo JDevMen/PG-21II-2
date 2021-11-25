@@ -14,8 +14,10 @@ public class CargaEscenarios : MonoBehaviour
     public GameObject esce3;
     public GameObject esce4;
 
-    public bool verCalculo = false; 
+    public bool verCalculo = false;
 
+    public GameObject botonFin;
+    public GameObject botonReintentar;
     public TMP_Text textoBoton;
 
     int escenario = EvaluacionPuntaje.escenarioCargar;
@@ -59,7 +61,11 @@ public class CargaEscenarios : MonoBehaviour
         }
         else
         {
+            botonReintentar.SetActive(true);
+            Vector3 pos = new Vector3(250, 0, 0);
+            botonFin.transform.localPosition += pos;
             textoBoton.text = "Finalizar";
+
             if (escenario == 1)
             {
                 txtPuntaje.text = txtEscenario1;
@@ -87,6 +93,11 @@ public class CargaEscenarios : MonoBehaviour
                 SceneManager.LoadScene("Menu");
             }
         }
+    }
+
+    public void reintentar()
+    {
+        SceneManager.LoadScene("Juego");
     }
 
 
